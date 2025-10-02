@@ -1,0 +1,15 @@
+@import url(https://db.onlinewebfonts.com/c/0ab46e1b2f236c9fad58c1e34cdecdf1?family=Roobert+TRIAL); 
+
+@font-face {
+    font-family: "Roobert TRIAL";
+    src: url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.eot");
+    src: url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.svg#Roobert TRIAL")format("svg");
+}
+
+*{
+    font-family: 'Roobert TRIAL', Arial, Helvetica, sans-serif;
+}
