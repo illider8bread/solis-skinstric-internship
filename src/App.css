@@ -99,3 +99,25 @@ header {
     font-size: 8rem;
     text-align: center;
 }
+
+.triangle{
+    position: absolute;
+}
+.left{
+    left: 0;
+}
+
+.right{
+    transform: rotate(180deg);
+    right: 0;
+}
+
+.landing__footer{
+    width: 316px;
+    font-size: 14px;
+    color: var(--theme-grey);
+    text-transform: uppercase;
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+}

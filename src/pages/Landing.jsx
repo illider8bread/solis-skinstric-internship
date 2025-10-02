@@ -1,11 +1,13 @@
 import { Link } from "react-router"
 import btn from '../assets/buttin-icon-shrunk.png'
+import triangle from '../assets/Rectangle-bkg.png'
 
 function Landing() {
 
     return (
         <>
             <section className="landing__body">
+                <img src={triangle} alt="" className="triangle left" />
                     <Link className="landing__btn">
                         <img src={btn} alt="" className="left-arrow arrow" />
                         Discover A.I.
@@ -17,12 +19,13 @@ function Landing() {
                         Take Test
                         <img src={btn} alt="" className="right-arrow arrow" />
                     </Link>
-            </section>
-            {/* <div className="landing__footer">
+                    <img src={triangle} alt="" className="triangle right" />
+            <div className="landing__footer">
                 <p className="landing__footer--text">
                     Skinstric developed an A.I. that creates a highly personalized routine tailored to what your skin needs.
                 </p>
-            </div> */}
+            </div>
+            </section>
         </>
     )
 }
