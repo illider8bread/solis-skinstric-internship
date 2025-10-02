@@ -1,58 +1,101 @@
-@import url(https://db.onlinewebfonts.com/c/0ab46e1b2f236c9fad58c1e34cdecdf1?family=Roobert+TRIAL); 
+@import url(https://db.onlinewebfonts.com/c/0ab46e1b2f236c9fad58c1e34cdecdf1?family=Roobert+TRIAL);
 
 @font-face {
     font-family: "Roobert TRIAL";
     src: url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.eot");
     src: url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.svg#Roobert TRIAL")format("svg");
+        url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/0ab46e1b2f236c9fad58c1e34cdecdf1.svg#Roobert TRIAL")format("svg");
 }
 
-*{
+* {
     box-sizing: border-box;
     font-family: 'Roobert TRIAL', Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: var(--theme-black);
     --theme-black: #1A1B1C;
-    --theme-grey: rgba(26, 27, 28, 1);
+    --theme-grey: rgba(26, 27, 28, 0.70);
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 4rem;
-    padding: 1.25rem 2rem
+    padding: 1.25rem 2rem;
+    width: 100%;
+
 }
 
-.header__logo--wrapper{
+.header__logo--wrapper {
     display: flex;
     align-items: center;
 }
-.header__logo{
+
+.header__logo {
     padding-right: 1rem;
     text-transform: uppercase;
 }
 
-.header__logo--location{
+.header__logo--location {
     color: var(--theme-grey);
 }
 
-.header__btn{
+.header__btn {
     height: 2rem;
     padding: 8px 16px;
     text-align: center;
     text-transform: uppercase;
     border: none;
-    color: #FCFCFC ;
+    color: #FCFCFC;
     background-color: var(--theme-black);
     font-size: 10px;
+}
 
+.landing__body {
+    width: 100%;
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.landing__btn {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--theme-grey);
+    letter-spacing: -2%;
+    width: 10%;
+}
+
+.left-arrow {
+    padding-right: 1rem;
+}
+
+.right-arrow {
+    transform: rotate(180deg);
+    padding-right: 1rem;
+}
+
+.landing__title--wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing__title {
+    width: 100%;
+    max-width: 848px;
+    font-size: 8rem;
+    text-align: center;
 }
