@@ -11,5 +11,48 @@
 }
 
 *{
+    box-sizing: border-box;
     font-family: 'Roobert TRIAL', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: var(--theme-black);
+    --theme-black: #1A1B1C;
+    --theme-grey: rgba(26, 27, 28, 1);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 1.25rem 2rem
+}
+
+.header__logo--wrapper{
+    display: flex;
+    align-items: center;
+}
+.header__logo{
+    padding-right: 1rem;
+    text-transform: uppercase;
+}
+
+.header__logo--location{
+    color: var(--theme-grey);
+}
+
+.header__btn{
+    height: 2rem;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    color: #FCFCFC ;
+    background-color: var(--theme-black);
+    font-size: 10px;
+
 }

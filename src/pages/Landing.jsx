@@ -1,4 +1,5 @@
 import { Link } from "react-router"
+import btn from '../assets/buttin-icon-shrunk.png'
 
 function Landing() {
 
@@ -7,17 +8,17 @@ function Landing() {
             <section className="landing__body">
                 <div className="landing__discover--wrapper">
                     <Link>
-                        <img src="" alt="" className="left-arrow" />
+                        <img src={btn} alt="" className="left-arrow" />
                         Discover All
                     </Link>
                 </div>
                 <div className="landing__title--wrapper">
-                    <h1 className="landing__title">Sophisticated Skincare</h1>
+                    <h1 className="landing__title">Sophisticated skincare</h1>
                 </div>
                 <div className="landing__test--wrapper">
                     <Link>
                         Take Test
-                        <img src="" alt="" className="right-arrow" />
+                        <img src={btn} alt="" className="right-arrow" />
                     </Link>
                 </div>
             </section>
