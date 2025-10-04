@@ -1,24 +1,23 @@
-import { Link } from "react-router"
+import { useNavigate } from "react-router"
 import btn from '../assets/buttin-icon-shrunk.png'
 import triangle from '../assets/Rectangle-bkg.png'
 
 function Landing() {
-
+    const navigate = useNavigate();
     return (
-        <>
-            <section className="landing__body">
+            <section className="body landing__body">
                 <img src={triangle} alt="" className="triangle left" />
-                    <Link className="landing__btn">
+                    <div className="landing__btn">
                         <img src={btn} alt="" className="left-arrow arrow" />
                         Discover A.I.
-                    </Link>
+                    </div>
                 <div className="landing__title--wrapper">
                     <h1 className="landing__title">Sophisticated skincare</h1>
                 </div>
-                    <Link className="landing__btn">
+                    <div onClick={()=>{navigate('/form/name')}} className="landing__btn">
                         Take Test
                         <img src={btn} alt="" className="right-arrow arrow" />
-                    </Link>
+                    </div>
                     <img src={triangle} alt="" className="triangle right" />
             <div className="landing__footer">
                 <p className="landing__footer--text">
@@ -26,7 +25,6 @@ function Landing() {
                 </p>
             </div>
             </section>
-        </>
     )
 }
 

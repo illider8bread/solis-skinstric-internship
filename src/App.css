@@ -48,7 +48,7 @@ header {
     color: var(--theme-grey);
 }
 
-.header__btn {
+.black__btn {
     height: 2rem;
     padding: 8px 16px;
     text-align: center;
@@ -59,13 +59,16 @@ header {
     font-size: 10px;
 }
 
-.landing__body {
+.body {
     width: 100%;
     height: calc(100vh - 5rem);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+}
+
+.landing__body {
+    justify-content: space-between;
 }
 
 .landing__btn {
@@ -75,6 +78,7 @@ header {
     color: var(--theme-grey);
     letter-spacing: -2%;
     width: 10%;
+    cursor: pointer;
 }
 
 .left-arrow {
@@ -100,20 +104,21 @@ header {
     text-align: center;
 }
 
-.triangle{
+.triangle {
     position: absolute;
-    z-index: 2;
+    z-index: -1;
 }
-.left{
+
+.left {
     left: 0;
 }
 
-.right{
+.right {
     transform: rotate(180deg);
     right: 0;
 }
 
-.landing__footer{
+.landing__footer {
     width: 316px;
     font-size: 14px;
     color: var(--theme-grey);
@@ -122,4 +127,78 @@ header {
     left: 2rem;
     bottom: 2rem;
     z-index: 1;
+}
+
+.form {
+    position: relative;
+    overflow: hidden;
+}
+
+.back {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+}
+
+.proceed{
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+.form__header {
+    text-transform: uppercase;
+    position: absolute;
+    top: 1.37rem;
+    left: 3rem;
+    letter-spacing: -2%;
+    font-size: 1rem;
+}
+
+.form__bgk--img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+
+.question {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__question {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--theme-grey);
+}
+
+.question__input {
+    font-size: 3.75rem;
+    line-height: 4rem;
+    letter-spacing: -7%;
+    font-weight: 400;
+    min-width: 16px;
+    max-width: 512px;
+    outline: none;
+    text-align: center;
+    color: var(--theme-black);
+    border: none;
+    text-decoration: underline var(--theme-black);
+    caret-color: transparent;
+    background-color: transparent;
+}
+
+.question__input::placeholder {
+    color: var(--theme-black);
 }

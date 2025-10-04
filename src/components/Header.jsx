@@ -13,7 +13,7 @@ function Header(){
                 </p>
             </div>
             <div className="header__btn--wrapper"> {/* Make this display only on the first page (maybe a function attached to the buttons that toggles true or false?) */}
-                <button className="header__btn">
+                <button className="black__btn">
                     Enter Code
                 </button>
             </div>
