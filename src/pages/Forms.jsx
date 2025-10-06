@@ -10,6 +10,7 @@ import FormPeice from '../components/FormPeice';
 // if false, display 'click to type' and the question in the placeholder
 // if true, display question in the title and nothing in the placeholder
 function Forms() {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [proceed, setProceed] = useState(false);
 
