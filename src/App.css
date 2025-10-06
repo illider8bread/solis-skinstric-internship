@@ -188,17 +188,14 @@ header {
     line-height: 4rem;
     letter-spacing: -7%;
     font-weight: 400;
-    min-width: 16px;
-    max-width: 512px;
+    min-width: 1rem;
+    max-width: 36rem;
     outline: none;
     text-align: center;
     color: var(--theme-black);
     border: none;
-    text-decoration: underline var(--theme-black);
-    caret-color: transparent;
+    text-decoration: underline var(--theme-black) solid 3px;
+    caret: var(--theme-black) auto bar;
     background-color: transparent;
 }
 
-.question__input::placeholder {
-    color: var(--theme-black);
-}
