@@ -86,6 +86,7 @@ function Pictures() {
                 </div>
                 <input
                     type="file"
+                    accept="image/*"
                     ref={fileInputRef}
                     style={{ display: 'none' }}
                     onChange={handleFileChange}
