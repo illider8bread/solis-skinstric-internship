@@ -54,7 +54,7 @@ function Forms() {
                 Back
             </div>
             {proceed && (
-                <div className="landing__btn proceed" onClick={() => navigate("/result")} >
+                <div className="landing__btn proceed" onClick={() => navigate("/image")} >
                     Proceed
                     <img src={btn} alt="" className="right-arrow arrow" />
                 </div>

@@ -251,3 +251,49 @@ header {
     left:120px;
     z-index: 1;
 }
+
+.preparing__image{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-55%, -50%);
+}
+
+.preparing__text{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.preparing__text{
+    text-transform:uppercase;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+
+.results__buttons{
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: rotate(45deg);
+}
+
+.results__button{
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.results__button--text{
+    transform: rotate(-45deg);
+}
