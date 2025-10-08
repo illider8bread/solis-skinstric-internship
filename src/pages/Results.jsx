@@ -1,8 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
-import axios from "axios";
-import btn from '../assets/buttin-icon-shrunk.png';
-import background from "../assets/form-bkg.png";
+import React, { useState } from "react";
 import Analysis from "../components/Analysis";
 import Demographics from "../components/Demographics";
 
@@ -21,11 +17,7 @@ function Results({ results }) {
                 <Analysis buttonsHandler={resultsButtonHandler}/>
                 :
                 <Demographics demographics={results} buttonsHandler={resultsButtonHandler}/> 
-                }
-                
-
-                
-                
+                }               
             </section>
         </>
     );

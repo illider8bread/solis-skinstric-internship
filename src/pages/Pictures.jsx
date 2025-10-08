@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
 import preparing from "../assets/preparing.png";
 import UploadImage from "../components/UploadImage";
 
 function Pictures({ uploadImage, loading }) {
-    const navigate = useNavigate();
     const fileInputRef = useRef(null);
     const [encodedImage, setEncodedImage] = useState("");
 
