@@ -8,17 +8,23 @@ import Demographics from "../components/Demographics";
 
 
 function Results({ results }) {
+    const [showDemo, setShowDemo] = useState(false);
+    function resultsButtonHandler(){
+        setShowDemo(!showDemo);
+    }
 
     return (
         <>
             <section className="body results">
                 <h2 className="form__header">A.I. Analysis</h2>
-                {/* <Analysis /> */}
-                <Demographics demographics={results}/>
+                {!showDemo ? 
+                <Analysis buttonsHandler={resultsButtonHandler}/>
+                :
+                <Demographics demographics={results} buttonsHandler={resultsButtonHandler}/> 
+                }
+                
 
-                <div className="landing__btn back" onClick={() => navigate("/")}>
-                    <img src={btn} alt="" className="left-arrow arrow" /> Back
-                </div>
+                
                 
             </section>
         </>

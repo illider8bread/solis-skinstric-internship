@@ -4,7 +4,7 @@ import radio from '../assets/radio-btn.png';
 import radioSelected from '../assets/radio-btn-selected.png'
 
 
-function Demographics({ race, age, sex }) {
+function Demographics({ race, age, sex, buttonsHandler }) {
 
 
     return (
@@ -106,15 +106,18 @@ function Demographics({ race, age, sex }) {
                                 0 %
                             </div>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
             <p className="disclaimer">
                 if A.I. estimate is wrong, please select the correct one.
             </p>
-            <div className="landing__btn proceed" onClick={() => navigate("/")}>
-                    Something somethin <img src={btn} alt="" className="right-arrow arrow" />
+            <div className="landing__btn back" onClick={() => buttonsHandler()}>
+                <img src={btn} alt="" className="left-arrow arrow" /> Back
+            </div>
+            <div className="landing__btn proceed">
+                Something somethin <img src={btn} alt="" className="right-arrow arrow" />
             </div>
         </div>
     );
