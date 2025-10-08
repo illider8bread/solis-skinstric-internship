@@ -27,7 +27,7 @@ function Demographics({ race, age, sex, buttonsHandler }) {
                     </div>
                 </div>
                 <div className="demographic__info">
-                    Insert Race
+                    Insert Demographic
 
                     <div className="pie__percent">
                         insert dynamic percentage display

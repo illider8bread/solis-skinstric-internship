@@ -4,7 +4,7 @@ import background from "../assets/form-bkg.png";
 
 
 function Analysis({ buttonsHandler }) {
-
+    const navigate = useNavigate();
     return (
         <>
             <img src={background} className="form__bgk--img" />

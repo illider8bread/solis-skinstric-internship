@@ -14,6 +14,7 @@ function App() {
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
+
   async function uploadImage(image) {
     setLoading(true);
     const postData = {
