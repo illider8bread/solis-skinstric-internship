@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router";
 import background from "../assets/form-bkg.png";
 import btn from '../assets/buttin-icon-shrunk.png'
