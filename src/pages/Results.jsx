@@ -19,9 +19,7 @@ function Results({ results }) {
                 <div className="landing__btn back" onClick={() => navigate("/")}>
                     <img src={btn} alt="" className="left-arrow arrow" /> Back
                 </div>
-                <div className="landing__btn proceed" onClick={() => navigate("/")}>
-                    Get Summary <img src={btn} alt="" className="right-arrow arrow" />
-                </div>
+                
             </section>
         </>
     );

@@ -34,6 +34,9 @@ function Analysis() {
                     </p>
                 </div>
             </div>
+            <div className="landing__btn proceed" onClick={() => navigate("/")}>
+                Get Summary <img src={btn} alt="" className="right-arrow arrow" />
+            </div>
         </>
     );
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import btn from '../assets/buttin-icon-shrunk.png';
-import background from "../assets/form-bkg.png";
+import radio from '../assets/radio-btn.png';
+import radioSelected from '../assets/radio-btn-selected.png'
 
 
 function Demographics({ race, age, sex }) {
@@ -12,39 +13,108 @@ function Demographics({ race, age, sex }) {
             <h4 className="demo__subtitle">Predicted race & age</h4>
             <div className="demographics">
                 <div className="demographic__selectors">
-                    <div className="demographic__selector">
+                    <div className="demographic__selector grey__hover">
                         <p className="selected">Insert Race </p>
                         <p className="demographic__listed">Race </p>
                     </div>
-                    <div className="demographic__selector">
+                    <div className="demographic__selector grey__hover">
                         <p className="selected">Insert Age </p>
                         <p className="demographic__listed">Age </p>
                     </div>
-                    <div className="demographic__selector">
+                    <div className="demographic__selector grey__hover">
                         <p className="selected">Insert Sex </p>
                         <p className="demographic__listed">Sex</p>
                     </div>
                 </div>
                 <div className="demographic__info">
-                    Insert Race 
+                    Insert Race
 
                     <div className="pie__percent">
                         insert dynamic percentage display
                     </div>
                 </div>
                 <div className="demographic__confidence">
-                    Race
-                    A.I. Confidence
+                    <div className="confidence">
+                        <div>
+                            Race
+                        </div>
+                        <div>
+                            A.I. Confidence
+                        </div>
+                    </div>
                     <ul>
-                        <li>list item </li>
-                        <li>list item </li>
-                        <li>list item </li>
-                        <li>list item </li>
-                        <li>list item </li>
-                        <li>list item </li>
-                        <li>list item</li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        <li className="confidence grey__hover">
+                            <div>
+                                <img src={radio} className="confidence__radio" />
+                                list item
+                            </div>
+                            <div>
+                                0 %
+                            </div>
+                        </li>
+                        
                     </ul>
                 </div>
+            </div>
+            <p className="disclaimer">
+                if A.I. estimate is wrong, please select the correct one.
+            </p>
+            <div className="landing__btn proceed" onClick={() => navigate("/")}>
+                    Something somethin <img src={btn} alt="" className="right-arrow arrow" />
             </div>
         </div>
     );
