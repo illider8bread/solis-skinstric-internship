@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-function FormPeice({  setProceed }){
+function FormPeice({ setProceed }){
     const [question, setQuestion] = useState("Introduce Yourself");
     const [clicked, setClicked] = useState(false);
     const [input, setInput] = useState('');
@@ -11,15 +11,14 @@ function FormPeice({  setProceed }){
     const handleSubmit = (event) => {
         event.preventDefault(); // Prevent the default form submission
         if (name === null){
-            localStorage.setItem('name', input);
-            setName(localStorage.getItem('name'));
+            sessionStorage.setItem('name', input);
+            setName(sessionStorage.getItem('name'));
             setClicked(false);
             setQuestion("Where are you from?");
             setInput("");
         } else if (location === null){
-            localStorage.setItem('location', input)
-            setLocation(localStorage.getItem('location'));
-            setProceed();
+            sessionStorage.setItem('location', input)
+            setLocation(sessionStorage.getItem('location'));
         }
     };
 

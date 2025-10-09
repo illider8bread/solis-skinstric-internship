@@ -5,22 +5,18 @@ import btn from '../assets/buttin-icon-shrunk.png'
 import FormPeice from '../components/FormPeice';
 
 
-function Forms({loading}) {
+function Forms({ loading, proceed }) {
     const navigate = useNavigate();
-    const [proceed, setProceed] = useState(false);
 
-    function changeProceed(){
-        setProceed(true);
-    }
     
 
-    const renderContent = ({loading}) => {
+    const renderContent = (loading) => {
         if (!proceed && loading) {
             return (<div className="question">Processing Submission</div>); // Loading state
         } else if (proceed && !loading) {
             return (<div className="question">Thank you! <br/> Proceed for the next step</div>); // Continue page
         } else {
-            return  (<FormPeice setProceed={changeProceed} />) //Form
+            return  (<FormPeice setProceed={ changeProceed } />) //Form
         }
     };
 

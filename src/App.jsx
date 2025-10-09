@@ -12,17 +12,15 @@ import Results from './pages/Results'
 function App() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
-  const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
-  const [encodedImage, setEncodedImage] = useState('');
+  const [proceed, setProceed] = useState(false);
   const navigate = useNavigate();
 
   async function createUser() {
     setLoading(true);
     console.log('createUser has been called')
     const postData = {
-      "name": localStorage.getItem('name'),
-      "location": localStorage.getItem('location')
+      "name": sessionStorage.getItem('name'),
+      "location": sessionStorage.getItem('location')
     };
     const endpoint = 'https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne';
     axios.post(endpoint, postData)
@@ -39,14 +37,15 @@ function App() {
   }
 
 
-  async function uploadImage(image) {
+  async function uploadImage() {
     setLoading(true);
     const postData = {
-      "image": image
+      "image": sessionStorage.getItem('image')
     };
     const endpoint = 'https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo';
     axios.post(endpoint, postData)
       .then((response) => {
+        console.log(response.data)
         setResults(response.data.data);
       })
       .catch((error) => {
@@ -59,14 +58,18 @@ function App() {
   }
 
   useEffect(() => {
-    if (localStorage.getItem('name').length > 0){
-      console.log(localStorage.getItem('name'))
+    if (sessionStorage.getItem('name') != null){
+      console.log(sessionStorage.getItem('name'))
     }
-    if (localStorage.getItem('location').length > 0){
-      console.log(localStorage.getItem('location'))
+    if (sessionStorage.getItem('location') != null){
+      console.log(sessionStorage.getItem('location'))
       createUser();
     }
-  }, [localStorage.getItem("name"), localStorage.getItem("location")]);
+    if (sessionStorage.getItem('image') != null){
+      console.log(sessionStorage.getItem('image'))
+      uploadImage();
+    }
+  }, [sessionStorage.getItem("name"), sessionStorage.getItem("location"), sessionStorage.getItem("image")]);
 
 
   return (
@@ -74,8 +77,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/form' element={<Forms loading={loading} />} />
-        <Route path='/image' element={<Pictures uploadImage={uploadImage} loading={loading} />} />
+        <Route path='/form' element={<Forms loading={loading} proceed={proceed} />} />
+        <Route path='/image' element={<Pictures  loading={loading} />} />
         <Route path='/results' element={<Results results={results} />} />
         {/* <Route path='/' element={}/> */}
       </Routes>
