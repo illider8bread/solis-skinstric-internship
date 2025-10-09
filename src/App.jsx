@@ -12,6 +12,7 @@ import Results from './pages/Results'
 function App() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
+  const [encodedImage, setEncodedImage] = useState('');
   const navigate = useNavigate();
 
   async function createUser(name, location) {
@@ -53,6 +54,8 @@ function App() {
         navigate("/results")
       })
   }
+  
+  
 
 
   return (

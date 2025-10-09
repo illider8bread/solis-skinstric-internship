@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router";
 import background from "../assets/form-bkg.png";
 import camera from "../assets/cameraicon.png";
