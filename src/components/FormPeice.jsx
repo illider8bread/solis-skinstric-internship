@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-function FormPeice({ createUser }){
+function FormPeice({ createUser, setProceed }){
     const [question, setQuestion] = useState("Introduce Yourself");
     const [clicked, setClicked] = useState(false);
     const [input, setInput] = useState('');
@@ -19,6 +19,7 @@ function FormPeice({ createUser }){
         } else if (location === null){
             localStorage.setItem('location', input)
             setLocation(localStorage.getItem('location'));
+            setProceed();
         }
     };
 

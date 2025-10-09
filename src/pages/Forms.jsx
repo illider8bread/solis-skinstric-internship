@@ -10,6 +10,9 @@ function Forms({ createUser }) {
     const [loading, setLoading] = useState(false);
     const [proceed, setProceed] = useState(false);
 
+    function changeProceed(){
+        setProceed(true);
+    }
     
 
     const renderContent = () => {
@@ -18,7 +21,7 @@ function Forms({ createUser }) {
         } else if (proceed && !loading) {
             return (<div className="question">Thank you! <br/> Proceed for the next step</div>); // Continue page
         } else {
-            return  (<FormPeice createUser={createUser} />) //Form
+            return  (<FormPeice createUser={createUser} setProceed={changeProceed} />) //Form
         }
     };
 
