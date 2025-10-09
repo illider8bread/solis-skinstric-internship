@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Analysis from "../components/Analysis";
 import Demographics from "../components/Demographics";
 
 
 function Results({ results }) {
     const [showDemo, setShowDemo] = useState(false);
+
     function resultsButtonHandler(){
         setShowDemo(!showDemo);
     }
-
+    useEffect(()=>{},[])
     return (
         <>
             <section className="body results">

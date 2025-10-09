@@ -2,11 +2,12 @@ import { useNavigate } from "react-router";
 import btn from '../assets/buttin-icon-shrunk.png';
 import radio from '../assets/radio-btn.png';
 import radioSelected from '../assets/radio-btn-selected.png'
+import { useEffect, useState } from "react";
 
 
-function Demographics({ race, age, sex, buttonsHandler }) {
-
-
+function Demographics({results, buttonsHandler}) {
+    console.log(results);
+    
     return (
         <div className="demographicpage">
             <h1 className="demo__title">Demographics</h1>
