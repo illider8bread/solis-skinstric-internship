@@ -5,9 +5,27 @@ import radioSelected from '../assets/radio-btn-selected.png'
 import { useEffect, useState } from "react";
 
 
-function Demographics({results, buttonsHandler}) {
-    console.log(results);
-    
+function Demographics({ demographics, buttonsHandler }) {
+    const [predictedRace, setPredictedRace] = useState('');
+    const [predictedAge, setPredictedAge] = useState('');
+    const [predictedSex, setPredictedSex] = useState('');
+
+    const raceArray = Object.entries(demographics.race).map(([key, value]) => ({ [key]: value }));
+    const ageArray = Object.entries(demographics.age).map(([key, value]) => ({ [key]: value }));
+    const sexArray = Object.entries(demographics.gender).map(([key, value]) => ({ [key]: value }));
+
+    function findMaxKey(obj) {
+        return Object.entries(obj).reduce((max, current) => {
+            return current[1] > max[1] ? current : max;
+        })[0]; // Return the key of the max value
+    };
+
+    useEffect(() => {
+        setPredictedRace(findMaxKey(demographics.race));
+        setPredictedAge(findMaxKey(demographics.age));
+        setPredictedSex(findMaxKey(demographics.gender));
+    }, [demographics])
+
     return (
         <div className="demographicpage">
             <h1 className="demo__title">Demographics</h1>
@@ -15,15 +33,21 @@ function Demographics({results, buttonsHandler}) {
             <div className="demographics">
                 <div className="demographic__selectors">
                     <div className="demographic__selector grey__hover">
-                        <p className="selected">Insert Race </p>
+                        <p className="selected">
+                            {predictedRace}
+                        </p>
                         <p className="demographic__listed">Race </p>
                     </div>
                     <div className="demographic__selector grey__hover">
-                        <p className="selected">Insert Age </p>
+                        <p className="selected">
+                            {predictedAge}
+                        </p>
                         <p className="demographic__listed">Age </p>
                     </div>
                     <div className="demographic__selector grey__hover">
-                        <p className="selected">Insert Sex </p>
+                        <p className="selected">
+                            {predictedSex}
+                        </p>
                         <p className="demographic__listed">Sex</p>
                     </div>
                 </div>
@@ -44,70 +68,21 @@ function Demographics({results, buttonsHandler}) {
                         </div>
                     </div>
                     <ul>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-                        <li className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" />
-                                list item
-                            </div>
-                            <div>
-                                0 %
-                            </div>
-                        </li>
-
+                        {raceArray.map((item, index) => {
+                            const key = Object.keys(item)[0]; // Get the key
+                            const value = (item[key] * 100).toFixed(2); // Multiply the value by 100 and format it
+                            return (
+                                <li key={index} className="confidence grey__hover">
+                                    <div>
+                                        <img src={radio} className="confidence__radio" alt="radio" />
+                                        {key}
+                                    </div>
+                                    <div>
+                                        {value} %
+                                    </div>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>

@@ -52,7 +52,7 @@ function App() {
       })
       .finally(() => {
         setLoading(false);
-        navigate("/results")
+        navigate("/results");
       })
   }
 
@@ -64,10 +64,10 @@ function App() {
 
   useEffect(() => {
     if (sessionStorage.getItem('image')){
-      console.log(sessionStorage.getItem('image'));
       uploadImage();
     }
   }, [sessionStorage.getItem('image')])
+
 
 
   return (
