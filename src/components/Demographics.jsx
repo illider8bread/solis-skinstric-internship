@@ -1,18 +1,22 @@
 import { useNavigate } from "react-router";
 import btn from '../assets/buttin-icon-shrunk.png';
-import radio from '../assets/radio-btn.png';
-import radioSelected from '../assets/radio-btn-selected.png'
+
 import { useEffect, useState } from "react";
+import Confidence from "./Confidence";
+import Percentage from "./Percentage";
 
 
 function Demographics({ demographics, buttonsHandler }) {
     const [predictedRace, setPredictedRace] = useState('');
+    const [raceConfidence, setRaceConfidence] = useState();
     const [predictedAge, setPredictedAge] = useState('');
+    const [ageConfidence, setAgeConfidence] = useState();
     const [predictedSex, setPredictedSex] = useState('');
+    const [sexConfidence, setSexConfidence] = useState();
+    const [raceArray, setRaceArray] = useState([]);
+    const [ageArray, setAgeArray] = useState([]);
+    const [sexArray, setSexArray] = useState([]);
 
-    const raceArray = Object.entries(demographics.race).map(([key, value]) => ({ [key]: value }));
-    const ageArray = Object.entries(demographics.age).map(([key, value]) => ({ [key]: value }));
-    const sexArray = Object.entries(demographics.gender).map(([key, value]) => ({ [key]: value }));
 
     function findMaxKey(obj) {
         return Object.entries(obj).reduce((max, current) => {
@@ -20,10 +24,27 @@ function Demographics({ demographics, buttonsHandler }) {
         })[0]; // Return the key of the max value
     };
 
+    function findMaxValue(obj) {
+        const values = Object.values(obj);
+        let maxValue = Math.max(...values);
+        maxValue = (maxValue * 100).toFixed(1) 
+        return maxValue;
+    };
+
+    function makeArray(obj) {
+        return Object.entries(obj).map(([key, value]) => ({ [key]: value }))
+    };
+
     useEffect(() => {
         setPredictedRace(findMaxKey(demographics.race));
+        setRaceConfidence(findMaxValue(demographics.race));
         setPredictedAge(findMaxKey(demographics.age));
+        setAgeConfidence(findMaxValue(demographics.age));
         setPredictedSex(findMaxKey(demographics.gender));
+        setSexConfidence(findMaxValue(demographics.gender));
+        setRaceArray(makeArray(demographics.race));
+        setAgeArray(makeArray(demographics.age));
+        setSexArray(makeArray(demographics.gender));
     }, [demographics])
 
     return (
@@ -52,38 +73,10 @@ function Demographics({ demographics, buttonsHandler }) {
                     </div>
                 </div>
                 <div className="demographic__info">
-                    Insert Demographic
-
-                    <div className="pie__percent">
-                        insert dynamic percentage display
-                    </div>
+                    <Percentage selected={predictedRace} percentage={raceConfidence} />
                 </div>
                 <div className="demographic__confidence">
-                    <div className="confidence">
-                        <div>
-                            Race
-                        </div>
-                        <div>
-                            A.I. Confidence
-                        </div>
-                    </div>
-                    <ul>
-                        {raceArray.map((item, index) => {
-                            const key = Object.keys(item)[0]; // Get the key
-                            const value = (item[key] * 100).toFixed(2); // Multiply the value by 100 and format it
-                            return (
-                                <li key={index} className="confidence grey__hover">
-                                    <div>
-                                        <img src={radio} className="confidence__radio" alt="radio" />
-                                        {key}
-                                    </div>
-                                    <div>
-                                        {value} %
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    {raceArray.length > 0 && <Confidence selected={"Race"} array={raceArray} />}
                 </div>
             </div>
             <p className="disclaimer">
