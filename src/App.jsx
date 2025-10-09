@@ -65,11 +65,7 @@ function App() {
       console.log(sessionStorage.getItem('location'))
       createUser();
     }
-    if (sessionStorage.getItem('image') != null){
-      console.log(sessionStorage.getItem('image'))
-      uploadImage();
-    }
-  }, [sessionStorage.getItem("name"), sessionStorage.getItem("location"), sessionStorage.getItem("image")]);
+  }, [sessionStorage.getItem("name"), sessionStorage.getItem("location")]);
 
 
   return (
@@ -78,7 +74,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/form' element={<Forms loading={loading} proceed={proceed} />} />
-        <Route path='/image' element={<Pictures  loading={loading} />} />
+        <Route path='/image' element={<Pictures  loading={loading} uploadImage={uploadImage}/>} />
         <Route path='/results' element={<Results results={results} />} />
         {/* <Route path='/' element={}/> */}
       </Routes>
