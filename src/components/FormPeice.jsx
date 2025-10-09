@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-function FormPeice({ createUser, setProceed }){
+function FormPeice({  setProceed }){
     const [question, setQuestion] = useState("Introduce Yourself");
     const [clicked, setClicked] = useState(false);
     const [input, setInput] = useState('');
@@ -22,12 +22,6 @@ function FormPeice({ createUser, setProceed }){
             setProceed();
         }
     };
-
-    useEffect(()=>{
-        if (location){
-        createUser(name, location)
-        }
-    },[location])
 
     return(
         <div className="question">
