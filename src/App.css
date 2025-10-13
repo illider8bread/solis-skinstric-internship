@@ -24,13 +24,17 @@ a {
     text-decoration: none;
     color: inherit;
 }
-p{
+p,
+div,
+img{
     color: inherit;
 }
+
 ul{
     margin: 0;
     padding: 0;
 }
+
 
 li{
     text-decoration: none;

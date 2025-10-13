@@ -22,7 +22,7 @@ function PredictedDemos({ predictions, changeSelection, selected}) {
                 element.classList.add("black");
             }
         } else {
-            console.error(`Element with ID ${id} not found.`);
+            return
         }
     }
 

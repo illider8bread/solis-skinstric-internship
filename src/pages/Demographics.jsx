@@ -48,9 +48,6 @@ function Demographics({ demographics }) {
         sortByValues(demographics);
     }, [demographics])
 
-    useEffect(()=>{
-        console.log(selected)
-    },[selected])
     return (
         <div className="demographicpage">
             <h1 className="demo__title">Demographics</h1>
