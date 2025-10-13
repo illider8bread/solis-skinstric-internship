@@ -6,7 +6,7 @@ function Percentage({selected, percentage}){
         {selected}
 
                     <div className="pie__percent">
-                        {percentage} %
+                        {(percentage * 100).toFixed(2)} %
                     </div>
         </>
     )

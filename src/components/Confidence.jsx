@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import radio from '../assets/radio-btn.png';
 import radioSelected from '../assets/radio-btn-selected.png'
 
-function Confidence({selected, array}) {
+function Confidence({ selected, results }) {
+    const [array, setArray] = useState([]);
+    useEffect(() => {
+        toArrayOfObjects(results.race)
+    }, [results])
+
+    useEffect(() => {
+        console.log("array")
+        console.log(array)
+    }, [array])
+
+    function toArrayOfObjects(obj) {
+        const result = [];
+        for (const [key, value] of Object.entries(obj)) {
+            const newObj = { "key": key, "value": value };
+            result.push(newObj);
+        }
+        setArray(result)
+    }
+
 
     return (
         <>
@@ -15,21 +34,22 @@ function Confidence({selected, array}) {
                 </div>
             </div>
             <ul>
-                {array.map((item, index) => {
-                    const key = Object.keys(item)[0]; // Get the key
-                    const value = (item[key] * 100).toFixed(1); // Multiply the value by 100 and format it
-                    return (
-                        <li key={index} className="confidence grey__hover">
-                            <div>
-                                <img src={radio} className="confidence__radio" alt="radio" />
-                                {key}
-                            </div>
-                            <div>
-                                {value} %
-                            </div>
-                        </li>
-                    );
-                })}
+                {array.length > 0 ?
+                    array.map((item, index) => {
+                        return (
+                            <li key={index} className="confidence grey__hover">
+                                <div>
+                                    <img src={radio} className="confidence__radio" alt="radio" />
+                                    {item.key}
+                                </div>
+                                <div>
+                                    {item.value} %
+                                </div>
+                            </li>
+                        );
+                    }) :
+                    <>Loading...</>
+                }
             </ul>
         </>
     )
