@@ -19,6 +19,7 @@ function FormPeice({ setProceed }){
         } else if (location === null){
             sessionStorage.setItem('location', input)
             setLocation(sessionStorage.getItem('location'));
+            setProceed();
         }
     };
 

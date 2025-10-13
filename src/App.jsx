@@ -8,6 +8,7 @@ import Landing from './pages/Landing'
 import Forms from './pages/Forms'
 import Pictures from './pages/Pictures'
 import Results from './pages/Results'
+import Demographics from './pages/Demographics';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,10 @@ function App() {
   const [proceed, setProceed] = useState(false);
   const [account, setAccount] = useState([]);
   const navigate = useNavigate();
-
+  
+  function changeProceed(){
+    setProceed(true);
+  }
   async function createUser() {
     setLoading(true);
     const postData = {
@@ -35,8 +39,6 @@ function App() {
         setProceed(true);
       })
   }
-
-
   async function uploadImage() {
     setLoading(true);
     const postData = {
@@ -55,29 +57,26 @@ function App() {
         navigate("/results");
       })
   }
-
   useEffect(() => {
     if (sessionStorage.getItem('location') != null){
       createUser();
     }
   }, [sessionStorage.getItem("location")]);
-
   useEffect(() => {
     if (sessionStorage.getItem('image')){
       uploadImage();
     }
   }, [sessionStorage.getItem('image')])
 
-
-
   return (
     <>
       <Header />
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/form' element={<Forms loading={loading} proceed={proceed} />} />
+        <Route path='/form' element={<Forms loading={loading} proceed={proceed} changeProceed={changeProceed} />} />
         <Route path='/image' element={<Pictures  loading={loading} uploadImage={uploadImage}/>} />
-        <Route path='/results' element={<Results results={results} />} />
+        <Route path='/results' element={<Results/>} />
+        <Route path='/results/demographics' element={<Demographics demographics={results} />} />
         {/* <Route path='/' element={}/> */}
       </Routes>
 

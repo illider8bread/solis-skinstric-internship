@@ -5,7 +5,7 @@ import btn from '../assets/buttin-icon-shrunk.png'
 import FormPeice from '../components/FormPeice';
 
 
-function Forms({ loading, proceed }) {
+function Forms({ loading, proceed, changeProceed }) {
     const navigate = useNavigate();
 
     
