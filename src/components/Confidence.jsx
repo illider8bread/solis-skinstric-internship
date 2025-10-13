@@ -47,7 +47,6 @@ function Confidence({ selected, results }) {
     }
 
     function setRadio(className) {
-        console.log("changing radio");
         const imageElement = document.querySelector(`.${className}`);
 
         // Check if the image element exists
