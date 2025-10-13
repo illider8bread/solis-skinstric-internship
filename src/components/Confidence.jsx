@@ -5,8 +5,14 @@ import radioSelected from '../assets/radio-btn-selected.png'
 function Confidence({ selected, results }) {
     const [array, setArray] = useState([]);
     useEffect(() => {
-        toArrayOfObjects(results.race)
-    }, [results])
+        if(selected==="race"){
+            toArrayOfObjects(results.race)
+        }else if(selected === "age"){
+            toArrayOfObjects(results.age)
+        }else if(selected === "gender"){
+            toArrayOfObjects(results.gender)
+        }
+    }, [results, selected])
 
     function toArrayOfObjects(obj) {
         const result = [];
