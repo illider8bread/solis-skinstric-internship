@@ -8,11 +8,6 @@ function Confidence({ selected, results }) {
         toArrayOfObjects(results.race)
     }, [results])
 
-    useEffect(() => {
-        console.log("array")
-        console.log(array)
-    }, [array])
-
     function toArrayOfObjects(obj) {
         const result = [];
         for (const [key, value] of Object.entries(obj)) {
