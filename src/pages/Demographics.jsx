@@ -24,15 +24,20 @@ function Demographics({ demographics }) {
             const [maxKey, maxValue] = entries.reduce((max, current) => {
                 return current[1] > max[1] ? current : max;
             });
-            results[category] = { key: maxKey, value: maxValue };
+            results[category] = { key: maxKey, value: (maxValue * 100).toFixed(2) };
         }
         setPredictions(results);
         return results;
     }
 
-    function sortByValues(obj) {
-        const sorted = {}; // Create a new object to store the sorted values
+    function fixPredictions(demographic, key, value){
+        setPredictions(prevPredictions => ({
+            ...prevPredictions, // Spread the previous predictions
+            [demographic]: { key: key, value: value } // Update the specific category
+    }))}
 
+    function sortByValues(obj) {
+        const sorted = {};
         for (const [key, childObj] of Object.entries(obj)) {
             const entries = Object.entries(childObj).map(([k, v]) => [String(k), parseFloat(v)]);
             entries.sort((a, b) => b[1] - a[1]);
@@ -40,7 +45,6 @@ function Demographics({ demographics }) {
             sorted[key] = Object.fromEntries(formattedEntries);
         }
         setSortedResults(sorted);
-        return sorted; // Return the new sorted object
     }
 
     useEffect(() => {
@@ -60,7 +64,7 @@ function Demographics({ demographics }) {
                         <Percentage selected={selected} results={predictions} />
                 </div>
                 <div className="demographic__confidence">
-                        <Confidence selected={selected} results={sortedResults} />
+                        <Confidence selected={selected} results={sortedResults} fixPredictions={fixPredictions} />
                 </div>
                 </>
                 :

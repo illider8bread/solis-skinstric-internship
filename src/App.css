@@ -376,6 +376,7 @@ header {
 .demographic__confidence {
     background-color: var(--theme-highlight-grey);
     height: 60%;
+    min-height: 400px;
     max-height: 544px;
 }
 
@@ -385,6 +386,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    min-height: 400px;
+    height: 60%;
 }
 .demographic__selector{
     margin-bottom: 1rem;
@@ -443,4 +446,9 @@ header {
 .black{
     background-color: var(--theme-black);
     color: var(--theme-highlight-grey);
+}
+
+.prediction__percent{
+    text-transform: capitalize;
+    font-size: inherit;
 }

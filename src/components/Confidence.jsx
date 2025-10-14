@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import radio from '../assets/radio-btn.png';
 import radioSelected from '../assets/radio-btn-selected.png'
 
-function Confidence({ selected, results }) {
+function Confidence({ selected, results, fixPredictions }) {
     const [array, setArray] = useState([]);
-    const [predicted, setPredicted] = useState(document.getElementById("0"))
+    const [predicted, setPredicted] = useState()
     useEffect(() => {
         if (selected === "race") {
             toArrayOfObjects(results.race)
@@ -68,6 +68,10 @@ useEffect(() => {
     correctPrediction(predicted);
 }, [predicted])
 
+useEffect(()=>{
+    setPredicted(document.getElementById("0"));
+},[results])
+
 
 return (
     <>
@@ -82,10 +86,20 @@ return (
         <ul>
             {array.length > 0 ?
                 array.map((item, index) => {
-                    return (
-                        <li key={index} id={index} className="confidence confidence__set grey__hover" onClick={() => { setPredicted(document.getElementById(index)); setRadio(`radio${index}`) }}>
+                    if(index===0){
+                        return (
+                        <li 
+                        key={index} 
+                        id={index} 
+                        className="confidence confidence__set black" 
+                        onClick={() => { 
+                            setPredicted(document.getElementById(index)); 
+                            setRadio(`radio${index}`); 
+                            fixPredictions(selected, item.key, item.value) }}>
                             <div>
-                                <img src={radio} className={`confidence__radio radio${index}`} alt="radio" />
+                                <img 
+                                src={radioSelected} 
+                                className={`confidence__radio radio${index}`} alt="radio" />
                                 {item.key}
                             </div>
                             <div>
@@ -93,6 +107,28 @@ return (
                             </div>
                         </li>
                     );
+                } else {
+                    return (
+                        <li 
+                        key={index} 
+                        id={index} 
+                        className="confidence confidence__set grey__hover" 
+                        onClick={() => { 
+                            setPredicted(document.getElementById(index)); 
+                            setRadio(`radio${index}`);
+                            fixPredictions(selected, item.key, item.value) }}>
+                            <div>
+                                <img 
+                                src={radio} 
+                                className={`confidence__radio radio${index}`} 
+                                alt="radio" />
+                                {item.key}
+                            </div>
+                            <div>
+                                {item.value} %
+                            </div>
+                        </li>
+                    );}
                 }) :
                 <>Loading...</>
             }
