@@ -500,13 +500,49 @@ header {
     width: 100%; /* Full width */
     height: auto; /* Full height */
     object-fit: cover; /* Cover the entire area */
-    position: relative;
 }
 .webcam__cap{
     position: absolute; /* Position the button absolutely */
-    bottom: 20px; /* Adjust the top position */
-    left: 50%; /* Center the button horizontally */
-    transform: translateX(-50%); /* Adjust for the button's width */
+    right: 20px; /* Adjust the top position */
+    top: 50%; /* Center the button horizontally */
+    transform: translateY(-50%); /* Adjust for the button's width */
     border-radius: 5px; /* Rounded corners */
+    background-color: transparent;
+    color: #FCFCFC;
     cursor: pointer; /* Pointer cursor on hover */
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.webcam__icon{
+    padding-left: 1rem;
+}
+
+.webcam__message{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color:#FCFCFC;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.webcam__message > ul{
+    color: inherit;
+    display: flex;
+
+}
+
+.webcam__message > ul > li{
+    color: inherit;
+    padding: 1rem 2rem;
+}
+
+.inverted{
+    filter: invert(1);
+    padding: 0 0.5rem;
 }

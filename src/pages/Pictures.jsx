@@ -24,13 +24,6 @@ function Pictures({ uploadImage, loading }) {
         }
     };
 
-    useEffect(() => {
-        if (encodedImage) {
-            // Only call uploadImage if there's an image
-            uploadImage();
-        }
-    }, [encodedImage]);
-
     return (
         <>
             {loading ? (

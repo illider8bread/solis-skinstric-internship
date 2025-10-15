@@ -41,6 +41,7 @@ function App() {
       })
   }
   async function uploadImage() {
+    console.log("gotem")
     setLoading(true);
     const postData = {
       "image": sessionStorage.getItem('image')
@@ -76,8 +77,8 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path='/form' element={<Forms loading={loading} proceed={proceed} changeProceed={changeProceed} />} />
         <Route path='/image' element={<Pictures  loading={loading} uploadImage={uploadImage}/>} />
+        <Route path='/webcam' element={<Camera uploadImage={uploadImage}/>}/>
         <Route path='/results' element={<Results/>} />
-        <Route path='/webcam' element={<Camera/>}/>
         <Route path='/demographics' element={<Demographics demographics={results} />} />
         {/* <Route path='/' element={}/> */}
       </Routes>
