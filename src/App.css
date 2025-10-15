@@ -468,17 +468,45 @@ header {
     width: fit-content;
     height: fit-content;
 }
-.pie__child{
-    position: absolute; /* Set the child to absolute */
+
+.pie__child {
+    position: absolute;
+    /* Set the child to absolute */
     top: 50%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem ;
+    font-size: 2.5rem;
     display: flex;
     justify-content: start;
     letter-spacing: -5%;
 }
-.small{
+
+.small {
     font-size: 1.5rem;
     padding-left: 5px;
+}
+
+
+.webcam__container {
+    position: fixed; /* Position it fixed to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: hidden; /* Hide overflow */
+}
+
+.webcam {
+    width: 100%; /* Full width */
+    height: auto; /* Full height */
+    object-fit: cover; /* Cover the entire area */
+    position: relative;
+}
+.webcam__cap{
+    position: absolute; /* Position the button absolutely */
+    bottom: 20px; /* Adjust the top position */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Adjust for the button's width */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
 }
