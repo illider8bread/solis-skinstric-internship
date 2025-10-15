@@ -19,7 +19,7 @@ function UploadImage({ handleButtonClick, handleFileChange, fileInputRef }) {
                         <div className="option">
                             <img src={camera} alt="camera icon" />
                         </div>
-                        <img src={pointer} alt="" className="camera-pointer" />
+                        <img src={pointer} alt="" className="camera-pointer" onClick={navigate('/webcam')} />
                         <p className="camera__para option__para">Allow A.I. to scan your face</p>
                     </div>
                     <div className="selection">

@@ -9,6 +9,7 @@ import Forms from './pages/Forms'
 import Pictures from './pages/Pictures'
 import Results from './pages/Results'
 import Demographics from './pages/Demographics';
+import Webcam from './pages/Webcam';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -76,6 +77,7 @@ function App() {
         <Route path='/form' element={<Forms loading={loading} proceed={proceed} changeProceed={changeProceed} />} />
         <Route path='/image' element={<Pictures  loading={loading} uploadImage={uploadImage}/>} />
         <Route path='/results' element={<Results/>} />
+        <Route path='/webcam' element={<Webcam/>}/>
         <Route path='/demographics' element={<Demographics demographics={results} />} />
         {/* <Route path='/' element={}/> */}
       </Routes>
