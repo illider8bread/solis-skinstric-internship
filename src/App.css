@@ -24,19 +24,20 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 p,
 div,
-img{
+img {
     color: inherit;
 }
 
-ul{
+ul {
     margin: 0;
     padding: 0;
 }
 
 
-li{
+li {
     text-decoration: none;
     list-style: none;
     margin: 0;
@@ -372,6 +373,7 @@ header {
     color: var(--theme-grey);
     font-weight: 400;
 }
+
 .demographic__info,
 .demographic__confidence {
     background-color: var(--theme-highlight-grey);
@@ -380,7 +382,7 @@ header {
     max-height: 544px;
 }
 
-.demographic__selectors{
+.demographic__selectors {
     width: 15%;
     display: flex;
     flex-direction: column;
@@ -389,7 +391,8 @@ header {
     min-height: 400px;
     height: 60%;
 }
-.demographic__selector{
+
+.demographic__selector {
     margin-bottom: 1rem;
     background-color: var(--theme-highlight-grey);
     width: 100%;
@@ -400,39 +403,43 @@ header {
     border-top: 2px solid var(--theme-black);
 }
 
-.selected{
+.selected {
     margin-bottom: 3rem;
 }
 
-.demographic__info{
+.demographic__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 60%;
     margin: 0 1rem;
     border-top: 2px solid var(--theme-black);
     font-size: 3rem;
     padding: 0 1rem;
 }
-.demographic__confidence{
+
+.demographic__confidence {
     width: 25%;
     border-top: 2px solid var(--theme-black);
     text-transform: uppercase;
 }
 
-.confidence{
+.confidence {
     padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.confidence__radio{
+.confidence__radio {
     padding-right: 1rem;
 }
 
-.grey__hover:hover{
+.grey__hover:hover {
     background-color: #E1E1E2;
     cursor: pointer;
 }
 
-.disclaimer{
+.disclaimer {
     text-transform: uppercase;
     color: var(--theme-grey);
     font-size: 14px;
@@ -443,12 +450,35 @@ header {
 
 }
 
-.black{
+.black {
     background-color: var(--theme-black);
     color: var(--theme-highlight-grey);
 }
 
-.prediction__percent{
+.prediction__percent {
     text-transform: capitalize;
     font-size: inherit;
+    align-self: flex-start;
+}
+
+.pie__percent {
+    align-self: flex-end;
+    margin: 1.5rem 0.5rem;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+.pie__child{
+    position: absolute; /* Set the child to absolute */
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem ;
+    display: flex;
+    justify-content: start;
+    letter-spacing: -5%;
+}
+.small{
+    font-size: 1.5rem;
+    padding-left: 5px;
 }

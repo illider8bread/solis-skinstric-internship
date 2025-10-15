@@ -16,7 +16,7 @@ function Results() {
                                Fix estimated information if needed.
                            </div>
                            <div className="results__buttons">
-                               <div className="results__button" onClick={() => {navigate('/results/demographics')}}>
+                               <div className="results__button" onClick={() => {navigate('/demographics')}}>
                                    <p className="results__button--text">
                                        Demographics
                                    </p>

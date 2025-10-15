@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Doughnut } from 'react-chartjs-2';
+import DonutChart from "./DonutChart";
+
 
 function Percentage({ selected, results }) {
     const [prediction, setPrediction] = useState(results.race.key);
-    const [percentage, setPercentage] = useState(results.race.value)
-
-    
+    const [percentage, setPercentage] = useState(results.race.value);
 
 
     function setValues() {
@@ -20,21 +19,21 @@ function Percentage({ selected, results }) {
             setPercentage(results.gender.value);
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         setValues()
-    },[selected, results])
+    }, [selected, results])
 
 
     return (
         <>
             <div className="prediction__percent">
-            {prediction} 
+                {prediction}
             </div>
 
             <div className="pie__percent">
-                {percentage} %
+            { results ? <DonutChart percentage={percentage} /> : null }
+                <div className="pie__child">{percentage} <span className="small">%</span></div>
             </div>
-
         </>
     )
 }
