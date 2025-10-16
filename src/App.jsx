@@ -55,7 +55,7 @@ function App() {
       })
       .finally(() => {
         setLoading(false);
-        navigate("/results");
+        // navigate("/results");
       })
   }
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Webcam from "react-webcam";
 import CameraIcon from '../assets/photo-icon.png';
@@ -17,11 +17,14 @@ const Camera = (uploadImage) => {
   const navigate = useNavigate();
   const webcamRef = React.useRef(null);
   const [loading, setLoading] = useState(true);
+  const [image, setImage] = useState()
+  const [proceed, setProceed] = useState(false);
 
   const capture = React.useCallback(
     () => {
       const imageSrc = webcamRef.current.getScreenshot();
-      sessionStorage.setItem("image", imageSrc);
+      setImage(imageSrc);
+      setProceed(true);
     },
     [webcamRef]
   );
@@ -74,6 +77,17 @@ const Camera = (uploadImage) => {
           <div className="landing__btn back inverted" onClick={() => navigate("/")}>
             <img src={btn} alt="" className="left-arrow arrow " /> Back
           </div>
+        </>
+      )}
+      {proceed ? null : (
+        <>
+        <div className="camera__shot" >
+          Great Shot!
+        </div>
+        <div className="landing__btn proceed" onClick={() => {navigate("/results"); sessionStorage.setItem("image", image)}} >
+          Proceed
+          <img src={btn} alt="" className="right-arrow arrow" />
+        </div>
         </>
       )}
     </div>

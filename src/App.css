@@ -377,9 +377,9 @@ header {
 .demographic__info,
 .demographic__confidence {
     background-color: var(--theme-highlight-grey);
-    height: 60%;
-    min-height: 400px;
-    max-height: 544px;
+    height: 70%;
+    min-height: 420px;
+    max-height: 700px;
 }
 
 .demographic__selectors {
@@ -558,5 +558,13 @@ header {
 
 .loading--img{
     width: 700px;
-    
+}
+
+.camera__shot{
+    text-transform: uppercase;
+    color: #FCFCFC;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
 }
