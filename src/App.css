@@ -546,3 +546,17 @@ header {
     filter: invert(1);
     padding: 0 0.5rem;
 }
+
+.loading{
+    width: 100vw;
+    height: 100vh;
+    background-color: #FCFCFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading--img{
+    width: 700px;
+    
+}
