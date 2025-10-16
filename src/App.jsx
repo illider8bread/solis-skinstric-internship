@@ -41,7 +41,6 @@ function App() {
       })
   }
   async function uploadImage() {
-    console.log("gotem")
     setLoading(true);
     const postData = {
       "image": sessionStorage.getItem('image')

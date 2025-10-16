@@ -30,14 +30,14 @@ const Camera = (uploadImage) => {
     // Simulate a loading state for 2 seconds (or until the camera is ready)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust the time as needed
+    }, 4000); // Adjust the time as needed
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, []);
 
   return (
     <div className="webcam__container">
-      {!loading ? (
+      {loading ? (
         <div className="loading">
           <img src={WebLoad} className="loading--img" />
           <div className="webcam__message inverted">

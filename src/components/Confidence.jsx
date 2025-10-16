@@ -65,12 +65,14 @@ function Confidence({ selected, results, fixPredictions }) {
     }
 
 useEffect(() => {
-    correctPrediction(predicted);
+    correctPrediction();
+
 }, [predicted])
 
 useEffect(()=>{
     setPredicted(document.getElementById("0"));
-},[results])
+    setRadio("radio0")
+},[results, selected])
 
 
 return (
