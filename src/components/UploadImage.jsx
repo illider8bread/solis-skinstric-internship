@@ -5,7 +5,7 @@ import gallery from "../assets/galleryicon.png";
 import pointer from "../assets/pointer.png";
 import btn from '../assets/buttin-icon-shrunk.png';
 
-function UploadImage({ handleButtonClick, handleFileChange, fileInputRef }) {
+function UploadImage({ handleButtonClick, handleFileChange, fileInputRef, setPermissions }) {
     const navigate = useNavigate();
 
     return (
@@ -16,10 +16,10 @@ function UploadImage({ handleButtonClick, handleFileChange, fileInputRef }) {
                 <div className="container">
                     <div className="selection">
                         <img src={background} alt="background image of swirling squares" className="background" />
-                        <div className="option">
+                        <div className="option" onClick={setPermissions}>
                             <img src={camera} alt="camera icon" />
                         </div>
-                        <img src={pointer} alt="" className="camera-pointer" onClick={navigate('/webcam')} />
+                        <img src={pointer} alt="" className="camera-pointer"  />
                         <p className="camera__para option__para">Allow A.I. to scan your face</p>
                     </div>
                     <div className="selection">

@@ -1,10 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import preparing from "../assets/preparing.png";
 import UploadImage from "../components/UploadImage";
+import { useNavigate } from "react-router";
 
 function Pictures({ uploadImage, loading }) {
+    const navigate = useNavigate();
     const fileInputRef = useRef(null);
     const [encodedImage, setEncodedImage] = useState("");
+    const [permissions, setPermissions] = useState(false);
+
+    const changePermissions = () => {
+        console.log("got to permissions changeer")
+        setPermissions(true);
+    }
+
+    const handlePermissions = ()=>{
+        navigator.mediaDevices.getUserMedia({ video: true });
+        navigate('/webcam');
+    }
 
     const handleButtonClick = () => {
         fileInputRef.current.click(); // Trigger the file input click
@@ -37,9 +50,19 @@ function Pictures({ uploadImage, loading }) {
                 <UploadImage 
                     handleButtonClick={handleButtonClick} 
                     handleFileChange={handleFileChange} 
+                    setPermissions={changePermissions}
                     fileInputRef={fileInputRef} // Pass the ref to the child component
                 />
             )}
+            {permissions ? (
+            <div className="camera__permissions">
+                <p className="permission__question">Allow A.I. to access your camera?</p>
+                <div className="permission__buttons">
+                    <button className="permission__button grey" >Deny</button>
+                    <button className="permission__button" onClick={handlePermissions} >Allow</button>
+                </div>
+            </div>
+            ): null}
         </>
     );
 }

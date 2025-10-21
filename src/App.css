@@ -498,7 +498,7 @@ header {
 
 .webcam {
     width: 100%; /* Full width */
-    height: auto; /* Full height */
+    height: 100%; /* Full height */
     object-fit: cover; /* Cover the entire area */
 }
 .webcam__cap{
@@ -567,4 +567,37 @@ header {
     left: 50%;
     transform: translateX(-50%);
     top: 20%;
+}
+
+.camera__permissions{
+    color: #FCFCFC;
+    background-color: #1A1B1C;
+    width: 350px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+.permission__question{
+    padding: 0 1rem;
+}
+.permission__buttons{
+    border-top: solid 1px #FCFCFC;
+    display: flex;
+    justify-content: flex-end;
+}
+.permission__button{
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+.grey{
+    color: var(--theme-highlight-grey);
+    opacity: .7;
 }
