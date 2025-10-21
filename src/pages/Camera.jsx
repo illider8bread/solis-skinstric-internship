@@ -75,7 +75,7 @@ const Camera = (uploadImage) => {
             </ul>
           </div>
           <div className="landing__btn back inverted" onClick={() => navigate("/")}>
-            <img src={btn} alt="" className="left-arrow arrow " /> Back
+            <img src={btn} alt="" className="arrow " /> Back
           </div>
         </>
       )}
@@ -86,7 +86,7 @@ const Camera = (uploadImage) => {
         </div>
         <div className="landing__btn proceed inverted" onClick={() => {navigate("/results"); sessionStorage.setItem("image", image)}} >
           Proceed
-          <img src={btn} alt="" className="right-arrow arrow" />
+          <img src={btn} alt="" className="arrow right" />
         </div>
         </>
       )}

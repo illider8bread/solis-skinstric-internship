@@ -76,10 +76,10 @@ function Demographics({ demographics }) {
                 if A.I. estimate is wrong, please select the correct one.
             </p>
             <div className="landing__btn back" onClick={() => navigate('/results')}>
-                <img src={btn} alt="" className="left-arrow arrow" /> Back
+                <img src={btn} alt="" className="arrow" /> Back
             </div>
             <div className="landing__btn proceed">
-                Something somethin <img src={btn} alt="" className="right-arrow arrow" />
+                Something somethin <img src={btn} alt="" className="arrow right" />
             </div>
         </div>
     );

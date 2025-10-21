@@ -10,7 +10,7 @@ function Forms({ loading, proceed, changeProceed }) {
 
     
 
-    const renderContent = (loading) => {
+    const renderContent = () => {
         if (!proceed && loading) {
             return (<div className="question">Processing Submission</div>); // Loading state
         } else if (proceed && !loading) {
@@ -26,13 +26,13 @@ function Forms({ loading, proceed, changeProceed }) {
             <img className="form__bgk--img" src={background} alt="" />
             {renderContent()}
             <div className="landing__btn back" onClick={() => navigate("/")}>
-                <img src={btn} alt="" className="left-arrow arrow" />
+                <img src={btn} alt="" className="arrow" />
                 Back
             </div>
             {proceed && (
                 <div className="landing__btn proceed" onClick={() => navigate("/image")} >
                     Proceed
-                    <img src={btn} alt="" className="right-arrow arrow" />
+                    <img src={btn} alt="" className="arrow right" />
                 </div>
             )}
         </section>

@@ -38,10 +38,10 @@ function Results() {
                                </div>
                            </div>
                            <div className="landing__btn back" onClick={() => navigate("/")}>
-                               <img src={btn} alt="" className="left-arrow arrow" /> Back
+                               <img src={btn} alt="" className="arrow" /> Back
                            </div>
                            <div className="landing__btn proceed" onClick={() => buttonsHandler()}>
-                               Get Summary <img src={btn} alt="" className="right-arrow arrow" />
+                               Get Summary <img src={btn} alt="" className="arrow right" />
                            </div>             
             </section>
         </>

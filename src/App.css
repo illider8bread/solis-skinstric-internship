@@ -93,21 +93,24 @@ header {
 
 .landing__btn {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     text-transform: uppercase;
     color: var(--theme-grey);
     letter-spacing: -2%;
-    width: 15rem;
+    width: 10%;
+    max-width: 15rem;
     cursor: pointer;
 }
 
-.left-arrow {
-    padding-right: 1rem;
+.landing__btn--right {
+    justify-content: flex-end;
 }
 
-.right-arrow {
-    transform: rotate(180deg);
+.arrow {
     padding-right: 1rem;
+    height: 4vw;
+    max-height: 44px;
 }
 
 .landing__title--wrapper {
@@ -127,6 +130,7 @@ header {
 .triangle {
     position: absolute;
     z-index: -1;
+    width: 19%;
 }
 
 .left {
@@ -135,6 +139,9 @@ header {
 
 .right {
     transform: rotate(180deg);
+}
+
+.triangle.right {
     right: 0;
 }
 
@@ -488,28 +495,42 @@ header {
 
 
 .webcam__container {
-    position: fixed; /* Position it fixed to cover the viewport */
+    position: fixed;
+    /* Position it fixed to cover the viewport */
     top: 0;
     left: 0;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    overflow: hidden; /* Hide overflow */
+    width: 100vw;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: hidden;
+    /* Hide overflow */
 }
 
 .webcam {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Cover the entire area */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    object-fit: cover;
+    /* Cover the entire area */
 }
-.webcam__cap{
-    position: absolute; /* Position the button absolutely */
-    right: 20px; /* Adjust the top position */
-    top: 50%; /* Center the button horizontally */
-    transform: translateY(-50%); /* Adjust for the button's width */
-    border-radius: 5px; /* Rounded corners */
+
+.webcam__cap {
+    position: absolute;
+    /* Position the button absolutely */
+    right: 20px;
+    /* Adjust the top position */
+    top: 50%;
+    /* Center the button horizontally */
+    transform: translateY(-50%);
+    /* Adjust for the button's width */
+    border-radius: 5px;
+    /* Rounded corners */
     background-color: transparent;
     color: #FCFCFC;
-    cursor: pointer; /* Pointer cursor on hover */
+    cursor: pointer;
+    /* Pointer cursor on hover */
     border: none;
     text-transform: uppercase;
     display: flex;
@@ -517,37 +538,37 @@ header {
     justify-content: flex-end;
 }
 
-.webcam__icon{
+.webcam__icon {
     padding-left: 1rem;
 }
 
-.webcam__message{
+.webcam__message {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color:#FCFCFC;
+    color: #FCFCFC;
     text-transform: uppercase;
     text-align: center;
 }
 
-.webcam__message > ul{
+.webcam__message>ul {
     color: inherit;
     display: flex;
 
 }
 
-.webcam__message > ul > li{
+.webcam__message>ul>li {
     color: inherit;
     padding: 1rem 2rem;
 }
 
-.inverted{
+.inverted {
     filter: invert(1);
     padding: 0 0.5rem;
 }
 
-.loading{
+.loading {
     width: 100vw;
     height: 100vh;
     background-color: #FCFCFC;
@@ -556,11 +577,11 @@ header {
     align-items: center;
 }
 
-.loading--img{
+.loading--img {
     width: 700px;
 }
 
-.camera__shot{
+.camera__shot {
     text-transform: uppercase;
     color: #FCFCFC;
     position: absolute;
@@ -569,7 +590,7 @@ header {
     top: 20%;
 }
 
-.camera__permissions{
+.camera__permissions {
     color: #FCFCFC;
     background-color: #1A1B1C;
     width: 350px;
@@ -582,22 +603,182 @@ header {
     justify-content: space-between;
     text-transform: uppercase;
 }
-.permission__question{
+
+.permission__question {
     padding: 0 1rem;
 }
-.permission__buttons{
+
+.permission__buttons {
     border-top: solid 1px #FCFCFC;
     display: flex;
     justify-content: flex-end;
 }
-.permission__button{
+
+.permission__button {
     background-color: inherit;
     border: none;
     color: inherit;
     text-transform: uppercase;
     padding: 1rem;
 }
-.grey{
+
+.grey {
     color: var(--theme-highlight-grey);
     opacity: .7;
+}
+
+
+/* 480 pixels for smaller phones */
+@media (max-width: 480px) {
+    *{
+    overflow: hidden;
+}
+.body {
+    width: 100vw;
+    display: inline;
+    overflow: hidden;
+}
+
+.landing__btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: 10rem;
+}
+
+.landing__btn--right {
+    left: auto;
+    right: 2rem;
+}
+
+.arrow {
+    padding-right: 1rem;
+    height: 44px;
+}
+
+.landing__title--wrapper {
+    width: 100%;
+}
+
+.landing__title {
+    width: 100%;
+    font-size: 13vw;
+    text-align: center;
+}
+
+.triangle {
+    visibility: hidden;
+}
+
+.landing__footer {
+    width: 60%;
+    font-size: 1rem;
+    text-align: center;
+    font-size: 14px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50%;
+}
+}
+
+/* 768 tablets (ish) */
+@media (min-width: 480px) and (max-width: 768px) {
+*{
+    overflow: hidden;
+}
+.body {
+    width: 100vw;
+    display: inline;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+
+.landing__btn {
+    position: absolute;
+    bottom: 7.5rem;
+    left: 2rem;
+    width: 10rem;
+}
+
+.landing__btn--right {
+    left: auto;
+    right: 2rem;
+}
+
+.arrow {
+    padding-right: 1rem;
+    height: 44px;
+}
+
+.landing__title--wrapper {
+    width: 100%;
+}
+
+.landing__title {
+    width: 100%;
+    font-size: 13vw;
+    text-align: center;
+}
+
+.triangle {
+    bottom: -5rem;
+    width: 14rem;
+}
+
+.landing__footer {
+    width: 60%;
+    font-size: 1rem;
+    text-align: center;
+    font-size: 14px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 45%;
+}
+
+}
+
+/* 992px for smaller computers*/
+@media (min-width: 768px) and (max-width: 992px) {
+    .landing__title {
+        font-size: 9vw;
+    }
+
+    .landing__btn {
+        width: 7rem;
+        font-size: 0.7rem;
+    }
+
+    .arrow {
+        padding-right: 0.25rem;
+    }
+    .triangle{
+        min-width: 10rem;
+    }
+
+    .landing__footer {
+        width: 25%;
+        font-size: 0.7rem;
+    }
+}
+
+/* 1200px for computer */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .landing__title {
+        font-size: 10vw;
+    }
+
+    .landing__btn {
+        min-width: 7rem;
+        font-size: 0.8rem;
+    }
+
+    .arrow {
+        padding-right: 0.25rem;
+    }
+
+    .landing__footer {
+        max-width: 316px;
+        width: 25%;
+        font-size: 0.8rem;
+    }
 }

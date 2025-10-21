@@ -8,15 +8,15 @@ function Landing() {
             <section className="body landing__body">
                 <img src={triangle} alt="" className="triangle left" />
                     <div className="landing__btn">
-                        <img src={btn} alt="" className="left-arrow arrow" />
+                        <img src={btn} alt="" className="arrow" />
                         Discover A.I.
                     </div>
                 <div className="landing__title--wrapper">
                     <h1 className="landing__title">Sophisticated skincare</h1>
                 </div>
-                    <div onClick={()=>{navigate('/form')}} className="landing__btn">
+                    <div onClick={()=>{navigate('/form')}} className="landing__btn landing__btn--right">
                         Take Test
-                        <img src={btn} alt="" className="right-arrow arrow" />
+                        <img src={btn} alt="" className="arrow right" />
                     </div>
                     <img src={triangle} alt="" className="triangle right" />
             <div className="landing__footer">
