@@ -75,10 +75,10 @@ function Demographics({ demographics }) {
             <p className="disclaimer">
                 if A.I. estimate is wrong, please select the correct one.
             </p>
-            <div className="landing__btn back" onClick={() => navigate('/results')}>
+            <div className="back__btn" onClick={() => navigate('/results')}>
                 <img src={btn} alt="" className="arrow" /> Back
             </div>
-            <div className="landing__btn proceed">
+            <div className="proceed__btn">
                 Something somethin <img src={btn} alt="" className="arrow right" />
             </div>
         </div>

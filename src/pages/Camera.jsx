@@ -74,7 +74,7 @@ const Camera = (uploadImage) => {
               <li><img src={radio} className='inverted' />Adequate lighting</li>
             </ul>
           </div>
-          <div className="landing__btn back inverted" onClick={() => navigate("/")}>
+          <div className="back__btn inverted" onClick={() => navigate("/")}>
             <img src={btn} alt="" className="arrow " /> Back
           </div>
         </>
@@ -84,7 +84,7 @@ const Camera = (uploadImage) => {
         <div className="camera__shot" >
           Great Shot!
         </div>
-        <div className="landing__btn proceed inverted" onClick={() => {navigate("/results"); sessionStorage.setItem("image", image)}} >
+        <div className="proceed__btn inverted" onClick={() => {navigate("/results"); sessionStorage.setItem("image", image)}} >
           Proceed
           <img src={btn} alt="" className="arrow right" />
         </div>

@@ -38,10 +38,10 @@ function UploadImage({ handleButtonClick, handleFileChange, fileInputRef, setPer
                     style={{ display: 'none' }} 
                     onChange={handleFileChange} 
                 />
-                <div className="landing__btn back" onClick={() => navigate("/")}>
+                <div className="back__btn" onClick={() => navigate("/")}>
                     <img src={btn} alt="" className="arrow" /> Back
                 </div>
-                <div className="landing__btn proceed" onClick={() => navigate("/")}>
+                <div className="proceed__btn" onClick={() => navigate("/")}>
                     Proceed <img src={btn} alt="" className="arrow right" />
                 </div>
             </section>
