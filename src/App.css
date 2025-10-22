@@ -332,6 +332,10 @@ UPLOADING PHOTOS SECTION
     font-weight: bold;
 }
 
+/* 
+RESULTS PAGE
+*/
+
 .results {
     justify-content: center;
     align-items: center;
@@ -711,7 +715,7 @@ UPLOADING PHOTOS SECTION
         font-size: 11vw;
     }
 
-    
+
     .webcam__cap {
         left: 50%;
         bottom: 4rem;
@@ -734,6 +738,47 @@ UPLOADING PHOTOS SECTION
         min-width: 140px;
         width: 30%;
         padding: 1rem 0;
+    }
+
+    .results {
+        display: flex;
+        position: relative;
+    }
+
+    .background__img {
+        width: 80vw;
+        height: auto;
+    }
+
+    .results__buttons {
+        max-width: 320px;
+        width: 60vw;
+        max-height: 320px;
+        height: 60vw;
+        justify-content: space-between;
+    }
+
+    .results__button {
+        width: 28vw;
+        max-width: 150px;
+        height: 28vw;
+        max-height: 150px;
+        margin: min(1vw, 5px);
+    }
+
+    .results__button--text {
+        font-size: min(1rem, 3vw);
+    }
+
+    .subtitle__para {
+        position: absolute;
+        text-align: right;
+        left: 40%;
+        top: 1rem;
+        width: 50%;
+    }
+    .transparent{
+        color: transparent;
     }
 }
 
@@ -882,6 +927,39 @@ UPLOADING PHOTOS SECTION
         padding: 1rem 0;
     }
 
+    .results {
+        display: flex;
+        position: relative;
+    }
+
+    .background__img {
+        width: 80vw;
+        height: auto;
+    }
+
+    .results__buttons {
+        max-width: 320px;
+        width: 60vw;
+        max-height: 320px;
+        height: 60vw;
+        justify-content: space-between;
+    }
+
+    .results__button {
+        width: 28vw;
+        max-width: 150px;
+        height: 28vw;
+        max-height: 150px;
+        margin: min(1vw, 5px);
+    }
+
+    .subtitle__para {
+        position: absolute;
+        text-align: right;
+        right: 1rem;
+        top: 1rem;
+    }
+
 
 }
 
@@ -915,7 +993,6 @@ UPLOADING PHOTOS SECTION
         height: 45%;
     }
 
-    /* this range is when the webcam needs adjustment */
 }
 
 /* 1200px for computer */

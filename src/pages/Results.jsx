@@ -10,7 +10,7 @@ function Results() {
         <>
             <section className="body results">
                 <h2 className="form__header">A.I. Analysis</h2>
-               <img src={background} className="form__bgk--img" />
+               <img src={background} className="form__bgk--img background__img" />
                            <div className="subtitle__para">
                                A. I. has estimated the following. <br />
                                Fix estimated information if needed.
@@ -37,10 +37,10 @@ function Results() {
                                    </p>
                                </div>
                            </div>
-                           <div className="back__btn" onClick={() => navigate("/")}>
+                           <div className="back__btn transparent" onClick={() => navigate("/")}>
                                <img src={btn} alt="" className="arrow" /> Back
                            </div>
-                           <div className="proceed__btn" onClick={() => buttonsHandler()}>
+                           <div className="proceed__btn transparent" onClick={() => buttonsHandler()}>
                                Get Summary <img src={btn} alt="" className="arrow right" />
                            </div>             
             </section>
