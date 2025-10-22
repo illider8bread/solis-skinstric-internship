@@ -10,7 +10,6 @@ function Pictures({ uploadImage, loading }) {
     const [permissions, setPermissions] = useState(false);
 
     const changePermissions = () => {
-        console.log("got to permissions changeer")
         setPermissions(true);
     }
 

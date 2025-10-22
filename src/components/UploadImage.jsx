@@ -12,37 +12,32 @@ function UploadImage({ handleButtonClick, handleFileChange, fileInputRef, setPer
         <>
             <section className="body form">
                 <h2 className="form__header">To Start Analysis</h2>
-                <img className="form__bgk--img" alt="" />
                 <div className="container">
                     <div className="selection">
-                        <img src={background} alt="background image of swirling squares" className="background" />
                         <div className="option" onClick={setPermissions}>
-                            <img src={camera} alt="camera icon" />
+                            <img src={camera} className="icon" alt="camera icon" />
+                            <img src={pointer} alt="" className="camera-pointer" />
+                            <p className="camera__para">Allow A.I. to scan your face</p>
                         </div>
-                        <img src={pointer} alt="" className="camera-pointer"  />
-                        <p className="camera__para option__para">Allow A.I. to scan your face</p>
                     </div>
                     <div className="selection">
-                        <img src={background} alt="background image of swirling squares" className="background" />
+
                         <div className="option" onClick={handleButtonClick}>
-                            <img src={gallery} alt="photo gallery icon" />
+                            <img src={gallery} className="icon" alt="photo gallery icon" />
+                            <img src={pointer} alt="" className="gallery-pointer" />
+                            <p className="gallery__para">Allow A.I. access to your gallery</p>
                         </div>
-                        <img src={pointer} alt="" className="gallery-pointer" />
-                        <p className="gallery__para option__para">Allow A.I. access to your gallery</p>
                     </div>
                 </div>
-                <input 
-                    type="file" 
-                    accept="image/*" 
+                <input
+                    type="file"
+                    accept="image/*"
                     ref={fileInputRef} // Use the ref passed from the parent
-                    style={{ display: 'none' }} 
-                    onChange={handleFileChange} 
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
                 />
                 <div className="back__btn" onClick={() => navigate("/")}>
                     <img src={btn} alt="" className="arrow" /> Back
-                </div>
-                <div className="proceed__btn" onClick={() => navigate("/")}>
-                    Proceed <img src={btn} alt="" className="arrow right" />
                 </div>
             </section>
         </>

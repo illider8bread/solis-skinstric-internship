@@ -250,61 +250,66 @@ NEW USER FORM
     background-color: transparent;
 }
 
+/* 
+UPLOADING PHOTOS SECTION
+*/
+
 .container {
+    width: 100vw;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
 }
 
 .selection {
+    width: 45%;
+    height: 60vw;
+    background-image: url("./assets/form-bkg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-
+    justify-content: center;
 }
 
 .option {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    max-width: 136px;
+    position: relative;
 }
 
-.option__para {
+.gallery__para,
+.camera__para {
     position: absolute;
     text-transform: uppercase;
     width: 10rem;
 }
 
-.camera-pointer {
-    position: absolute;
-    top: 279px;
-    right: 279px;
-}
-
 .camera__para {
-    top: 225px;
-    right: 120px;
-    z-index: 1;
-}
-
-.gallery-pointer {
-    position: absolute;
-    transform: scale(-1);
-    top: 415px;
-    left: 270px;
+    top: -75px;
+    left: 180px;
 }
 
 .gallery__para {
-    top: 450px;
-    left: 120px;
-    z-index: 1;
+    right: 180px;
+    bottom: -74px;
+}
+
+.camera-pointer,
+.gallery-pointer {
+    position: absolute;
+}
+
+.camera-pointer {
+    top: -40px;
+    right: -30px
+}
+
+.gallery-pointer {
+    transform: scale(-1);
+    bottom: -28px;
+    left: -40px;
 }
 
 .preparing__image {
@@ -698,23 +703,26 @@ NEW USER FORM
         transform: translate(-50%);
         top: 50%;
     }
-    
-    .form{
+
+    .form {
         position: relative;
     }
+
     .landing__btn {
         position: absolute;
         bottom: 2rem;
         left: 2rem;
         width: 10rem;
     }
+
     .form__bgk--img {
         width: 100vw;
         min-width: 45rem;
 
     }
-    .question__input{
-       font-size:11vw;
+
+    .question__input {
+        font-size: 11vw;
     }
 }
 
@@ -730,8 +738,8 @@ NEW USER FORM
         padding-top: 1rem;
         overflow: hidden;
     }
-    .landing__body>
-    .landing__btn {
+
+    .landing__body>.landing__btn {
         position: absolute;
         bottom: 7.5rem;
         left: 2rem;
@@ -768,22 +776,76 @@ NEW USER FORM
         transform: translate(-50%);
         top: 45%;
     }
-    .form{
+
+    .form {
         position: relative;
     }
+
     .landing__btn {
         position: absolute;
         bottom: 2rem;
         left: 2rem;
         width: 10rem;
     }
+
     .form__bgk--img {
         width: 100vw;
         min-width: 45rem;
 
     }
-    .question__input{
-       font-size:3.5rem;
+
+    .question__input {
+        font-size: 3.5rem;
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        height: 99%;
+
+    }
+
+    .selection {
+        width: 100%;
+        height: 45%;
+    }
+
+    .option {
+        overflow: visible;
+    }
+
+    .icon {
+        width: 102px;
+    }
+
+    .gallery-pointer,
+    .camera-pointer {
+        width: 50.25px;
+    }
+
+    .gallery-pointer {
+        top: 80px;
+        left: -30px;
+    }
+
+    .camera-pointer {
+        top: -25px;
+    }
+
+    .gallery__para,
+    .camera__para {
+        width: 20vw;
+    }
+
+    .gallery__para {
+        right: 130px;
+        bottom: -45px;
+    }
+
+    .camera__para {
+        top: -55px;
+        left: 140px;
     }
 
 }
@@ -806,6 +868,16 @@ NEW USER FORM
     .landing__footer {
         width: 25%;
         font-size: 0.7rem;
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .selection {
+        width: 100%;
+        height: 45%;
     }
 }
 
