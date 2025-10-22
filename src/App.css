@@ -505,7 +505,6 @@ UPLOADING PHOTOS SECTION
 
 .pie__child {
     position: absolute;
-    /* Set the child to absolute */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -523,41 +522,28 @@ UPLOADING PHOTOS SECTION
 
 .webcam__container {
     position: fixed;
-    /* Position it fixed to cover the viewport */
     top: 0;
     left: 0;
     width: 100vw;
-    /* Full width */
     height: 100vh;
-    /* Full height */
     overflow: hidden;
-    /* Hide overflow */
 }
 
 .webcam {
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     object-fit: cover;
-    /* Cover the entire area */
 }
 
 .webcam__cap {
     position: absolute;
-    /* Position the button absolutely */
     right: 20px;
-    /* Adjust the top position */
     top: 50%;
-    /* Center the button horizontally */
     transform: translateY(-50%);
-    /* Adjust for the button's width */
     border-radius: 5px;
-    /* Rounded corners */
     background-color: transparent;
     color: #FCFCFC;
     cursor: pointer;
-    /* Pointer cursor on hover */
     border: none;
     text-transform: uppercase;
     display: flex;
@@ -724,6 +710,31 @@ UPLOADING PHOTOS SECTION
     .question__input {
         font-size: 11vw;
     }
+
+    
+    .webcam__cap {
+        left: 50%;
+        bottom: 4rem;
+        transform: translateX(-50%);
+        color: transparent;
+        flex-direction: column;
+    }
+
+    .webcam__message {
+        top: 20px;
+        width: 100vw;
+    }
+
+    .webcam__message>ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .webcam__message>ul>li {
+        min-width: 140px;
+        width: 30%;
+        padding: 1rem 0;
+    }
 }
 
 /* 768 tablets (ish) */
@@ -848,6 +859,30 @@ UPLOADING PHOTOS SECTION
         left: 140px;
     }
 
+    .webcam__cap {
+        left: 50%;
+        bottom: 2.5rem;
+        transform: translateX(-50%);
+        color: transparent;
+        flex-direction: column;
+    }
+
+    .webcam__message {
+        top: 20px;
+        width: 100vw;
+    }
+
+    .webcam__message>ul {
+        flex-wrap: wrap;
+    }
+
+    .webcam__message>ul>li {
+        min-width: 140px;
+        width: 30%;
+        padding: 1rem 0;
+    }
+
+
 }
 
 /* 992px for smaller computers*/
@@ -879,6 +914,8 @@ UPLOADING PHOTOS SECTION
         width: 100%;
         height: 45%;
     }
+
+    /* this range is when the webcam needs adjustment */
 }
 
 /* 1200px for computer */

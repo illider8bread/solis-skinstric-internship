@@ -22,7 +22,7 @@ function UploadImage({ handleButtonClick, handleFileChange, fileInputRef, setPer
                     </div>
                     <div className="selection">
 
-                        <div className="option" onClick={handleButtonClick}>
+                        <div className="option" onClick={()=>{handleButtonClick; navigate("/results")}}>
                             <img src={gallery} className="icon" alt="photo gallery icon" />
                             <img src={pointer} alt="" className="gallery-pointer" />
                             <p className="gallery__para">Allow A.I. access to your gallery</p>
