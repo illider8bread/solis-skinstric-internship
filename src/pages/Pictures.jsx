@@ -28,8 +28,8 @@ function Pictures({ uploadImage, loading }) {
         if (file) {
             // Set up the onloadend event to handle the file once it's read
             reader.onloadend = function () {
-                sessionStorage.setItem("image", reader.result);
-                setEncodedImage(sessionStorage.getItem("image")); // Save the Base64 string to state
+                localStorage.setItem("image", reader.result);
+                setEncodedImage(localStorage.getItem("image")); // Save the Base64 string to state
             };
             // Read the file as a data URL (Base64)
             reader.readAsDataURL(file);

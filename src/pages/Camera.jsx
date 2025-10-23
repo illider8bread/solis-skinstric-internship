@@ -84,7 +84,7 @@ const Camera = (uploadImage) => {
         <div className="camera__shot" >
           Great Shot!
         </div>
-        <div className="proceed__btn inverted" onClick={() => {navigate("/results"); sessionStorage.setItem("image", image)}} >
+        <div className="proceed__btn inverted" onClick={() => {navigate("/results"); localStorage.setItem("image", image)}} >
           Proceed
           <img src={btn} alt="" className="arrow right" />
         </div>
