@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router";
 import background from "../assets/form-bkg.png";
 import btn from '../assets/buttin-icon-shrunk.png'
@@ -7,18 +7,35 @@ import FormPeice from '../components/FormPeice';
 
 function Forms({ loading, proceed, changeProceed }) {
     const navigate = useNavigate();
+    const [trueLoading, setTrueLoading] = useState(false);
 
-    
+
 
     const renderContent = () => {
-        if (!proceed && loading) {
+        if (trueLoading) {
             return (<div className="question">Processing Submission</div>); // Loading state
         } else if (proceed && !loading) {
-            return (<div className="question">Thank you! <br/> Proceed for the next step</div>); // Continue page
+            return (<div className="question">Thank you! <br /> Proceed for the next step</div>); // Continue page
         } else {
-            return  (<FormPeice setProceed={ changeProceed } />) //Form
+            return (<FormPeice setProceed={changeProceed} />) //Form
         }
     };
+    useEffect(() => {
+        if (loading === true) {
+            setTrueLoading(true);
+        }
+    }, [loading])
+
+    useEffect(() => {
+        if (trueLoading){
+            const timer = setTimeout(() => {
+                setTrueLoading(false);
+            }, 2000);
+
+            return () => clearTimeout(timer); 
+        }
+    },[trueLoading])
+
 
     return (
         <section className="body form">
@@ -29,12 +46,12 @@ function Forms({ loading, proceed, changeProceed }) {
                 <img src={btn} alt="" className="arrow" />
                 Back
             </div>
-            {proceed && (
+            {(proceed && !trueLoading) ? (
                 <div className="proceed__btn" onClick={() => navigate("/image")} >
                     Proceed
                     <img src={btn} alt="" className="arrow right" />
                 </div>
-            )}
+            ) : null}
         </section>
     );
 }

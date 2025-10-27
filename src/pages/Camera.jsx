@@ -30,12 +30,11 @@ const Camera = (uploadImage) => {
   );
 
   useEffect(() => {
-    // Simulate a loading state for 2 seconds (or until the camera is ready)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000); // Adjust the time as needed
+    }, 4000);
 
-    return () => clearTimeout(timer); // Cleanup the timer
+    return () => clearTimeout(timer);
   }, []);
 
   return (
