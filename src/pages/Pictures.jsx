@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 function Pictures({ uploadImage, loading }) {
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
-    const [encodedImage, setEncodedImage] = useState("");
     const [permissions, setPermissions] = useState(false);
 
     const changePermissions = () => {
@@ -29,11 +28,11 @@ function Pictures({ uploadImage, loading }) {
             // Set up the onloadend event to handle the file once it's read
             reader.onloadend = function () {
                 sessionStorage.setItem("image", reader.result);
-                setEncodedImage(sessionStorage.getItem("image")); // Save the Base64 string to state
             };
             // Read the file as a data URL (Base64)
             reader.readAsDataURL(file);
         }
+        navigate("/results")
     };
 
     return (

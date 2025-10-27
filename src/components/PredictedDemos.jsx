@@ -71,19 +71,6 @@ function PredictedDemos({ predictions, changeSelection, selected}) {
                         <p className="selected">
                             Fetching...
                         </p>
-                        <p className="demographic__listed">Race </p>
-                    </div>
-                    <div className="demographic__selector grey__hover">
-                        <p className="selected">
-                            Fetching...
-                        </p>
-                        <p className="demographic__listed">Age </p>
-                    </div>
-                    <div className="demographic__selector grey__hover">
-                        <p className="selected">
-                            Fetching...
-                        </p>
-                        <p className="demographic__listed">Sex</p>
                     </div>
                 </div>
             )
