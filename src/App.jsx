@@ -24,8 +24,8 @@ function App() {
   async function createUser() {
     setLoading(true);
     const postData = {
-      "name": localStorage.getItem('name'),
-      "location": localStorage.getItem('location')
+      "name": sessionStorage.getItem('name'),
+      "location": sessionStorage.getItem('location')
     };
     const endpoint = 'https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne';
     axios.post(endpoint, postData)
@@ -43,7 +43,7 @@ function App() {
   async function uploadImage() {
     setLoading(true);
     const postData = {
-      "image": localStorage.getItem('image')
+      "image": sessionStorage.getItem('image')
     };
     const endpoint = 'https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo';
     axios.post(endpoint, postData)
@@ -59,15 +59,15 @@ function App() {
       })
   }
   useEffect(() => {
-    if (localStorage.getItem('location') != null){
+    if (sessionStorage.getItem('location') != null){
       createUser();
     }
-  }, [localStorage.getItem("location")]);
+  }, [sessionStorage.getItem("location")]);
   useEffect(() => {
-    if (localStorage.getItem('image')){
+    if (sessionStorage.getItem('image')){
       uploadImage();
     }
-  }, [localStorage.getItem('image')])
+  }, [sessionStorage.getItem('image')])
 
   return (
     <>

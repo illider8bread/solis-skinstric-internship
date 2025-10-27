@@ -10,7 +10,7 @@ function Forms({ loading, proceed, changeProceed }) {
 
     
 
-    const renderContent = (loading) => {
+    const renderContent = () => {
         if (!proceed && loading) {
             return (<div className="question">Processing Submission</div>); // Loading state
         } else if (proceed && !loading) {
