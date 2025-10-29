@@ -48,6 +48,7 @@ function Demographics({ demographics }) {
     }
 
     useEffect(() => {
+        console.log(demographics);
         findPredictions(demographics);
         sortByValues(demographics);
     }, [demographics])

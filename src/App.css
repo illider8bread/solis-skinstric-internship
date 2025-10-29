@@ -107,7 +107,7 @@ header {
     cursor: pointer;
 }
 
-.landing__btn--right {
+#landing__btn--right {
     justify-content: flex-end;
 }
 
@@ -667,7 +667,7 @@ RESULTS PAGE
         width: 10rem;
     }
 
-    .landing__btn--right {
+    #landing__btn--right {
         left: auto;
         right: 2rem;
     }
@@ -856,7 +856,7 @@ RESULTS PAGE
         width: 10rem;
     }
 
-    .landing__btn--right {
+    #landing__btn--right {
         left: auto;
         right: 2rem;
     }
@@ -896,6 +896,11 @@ RESULTS PAGE
         bottom: 2rem;
         left: 2rem;
         width: 10rem;
+    }
+
+    #landing__btn--right{
+        left: auto;
+        right: 2rem;
     }
 
     .form__bgk--img {

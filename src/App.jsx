@@ -40,6 +40,7 @@ function App() {
         setProceed(true);
       })
   }
+
   async function uploadImage() {
     setLoading(true);
     const postData = {
@@ -55,19 +56,15 @@ function App() {
       })
       .finally(() => {
         setLoading(false);
-        // navigate("/results");
       })
   }
+
   useEffect(() => {
     if (localStorage.getItem('location') != null){
       createUser();
     }
   }, [localStorage.getItem("location")]);
-  useEffect(() => {
-    if (localStorage.getItem('image')){
-      uploadImage();
-    }
-  }, [localStorage.getItem('image')])
+
 
   return (
     <>

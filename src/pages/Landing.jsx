@@ -14,7 +14,7 @@ function Landing() {
                 <div className="landing__title--wrapper">
                     <h1 className="landing__title">Sophisticated skincare</h1>
                 </div>
-                    <div onClick={()=>{navigate('/form')}} className="landing__btn landing__btn--right">
+                    <div onClick={()=>{navigate('/form')}} id="landing__btn--right" className="landing__btn">
                         Take Test
                         <img src={btn} alt="" className="arrow right" />
                     </div>

@@ -21,8 +21,12 @@ function Forms({ loading, proceed, changeProceed }) {
         }
     };
     useEffect(() => {
+        let x= 0;
         if (loading === true) {
-            setTrueLoading(true);
+            x++;
+            if(x=2){
+                setTrueLoading(true);
+            }
         }
     }, [loading])
 

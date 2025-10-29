@@ -3,10 +3,11 @@ import preparing from "../assets/preparing.png";
 import UploadImage from "../components/UploadImage";
 import { useNavigate } from "react-router";
 
-function Pictures({ uploadImage, loading }) {
+function Pictures({ loading, uploadImage }) {
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
     const [permissions, setPermissions] = useState(false);
+    const [trueLoading, setTrueLoading] = useState(false);
 
     const changePermissions = () => {
         setPermissions(true);
@@ -32,12 +33,29 @@ function Pictures({ uploadImage, loading }) {
             // Read the file as a data URL (Base64)
             reader.readAsDataURL(file);
         }
-        navigate("/results")
+        uploadImage();
     };
+
+    useEffect(() => {
+        if (loading === true) {
+            setTrueLoading(true);
+        }
+    }, [loading])
+
+    useEffect(() => {
+        if (trueLoading){
+            const timer = setTimeout(() => {
+                setTrueLoading(false);
+                navigate('/results')
+            }, 2000);
+
+            return () => clearTimeout(timer); 
+        }
+    },[trueLoading])
 
     return (
         <>
-            {loading ? (
+            {trueLoading ? (
                 <div className="container">
                     <figure className="preparing__image">
                         <img src={preparing} alt="" />
