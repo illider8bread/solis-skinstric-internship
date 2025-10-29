@@ -66,13 +66,7 @@ function PredictedDemos({ predictions, changeSelection, selected}) {
             )
         } else {
             return (
-                <div className="demographic__selectors">
-                    <div className="demographic__selector grey__hover">
-                        <p className="selected">
-                            Fetching...
-                        </p>
-                    </div>
-                </div>
+                null
             )
         }
     }

@@ -13,7 +13,7 @@ function Pictures({ loading, uploadImage }) {
         setPermissions(true);
     }
 
-    const handlePermissions = ()=>{
+    const handlePermissions = () => {
         navigator.mediaDevices.getUserMedia({ video: true });
         navigate('/webcam');
     }
@@ -35,7 +35,11 @@ function Pictures({ loading, uploadImage }) {
         }
         uploadImage();
     };
-
+    useEffect(() => {
+        if (localStorage.getItem("image")) {
+            uploadImage();
+        }
+    }, [localStorage.getItem("image")])
     useEffect(() => {
         if (loading === true) {
             setTrueLoading(true);
@@ -43,15 +47,15 @@ function Pictures({ loading, uploadImage }) {
     }, [loading])
 
     useEffect(() => {
-        if (trueLoading){
+        if (trueLoading) {
             const timer = setTimeout(() => {
                 setTrueLoading(false);
                 navigate('/results')
             }, 2000);
 
-            return () => clearTimeout(timer); 
+            return () => clearTimeout(timer);
         }
-    },[trueLoading])
+    }, [trueLoading])
 
     return (
         <>
@@ -63,22 +67,22 @@ function Pictures({ loading, uploadImage }) {
                     <div className="preparing__text">Preparing your analysis...</div>
                 </div>
             ) : (
-                <UploadImage 
-                    handleButtonClick={handleButtonClick} 
-                    handleFileChange={handleFileChange} 
+                <UploadImage
+                    handleButtonClick={handleButtonClick}
+                    handleFileChange={handleFileChange}
                     setPermissions={changePermissions}
                     fileInputRef={fileInputRef} // Pass the ref to the child component
                 />
             )}
             {permissions ? (
-            <div className="camera__permissions">
-                <p className="permission__question">Allow A.I. to access your camera?</p>
-                <div className="permission__buttons">
-                    <button className="permission__button grey" >Deny</button>
-                    <button className="permission__button" onClick={handlePermissions} >Allow</button>
+                <div className="camera__permissions">
+                    <p className="permission__question">Allow A.I. to access your camera?</p>
+                    <div className="permission__buttons">
+                        <button className="permission__button grey" >Deny</button>
+                        <button className="permission__button" onClick={handlePermissions} >Allow</button>
+                    </div>
                 </div>
-            </div>
-            ): null}
+            ) : null}
         </>
     );
 }
