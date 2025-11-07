@@ -10,8 +10,16 @@ function Image() {
         <div className="container">
             <div className="row">
             <StartAnalysis/>
+            <div className="image__wrapper">
+                <div className="input__wrapper">
             <ImageInput icon={gallery} text="blah blah blah" arrowDirection="southwest" />
+
+                </div>
+                <div className="input__wrapper">
+                    
             <ImageInput icon={camera} text="blah blah blah" arrowDirection="northeast" />
+                </div>
+            </div>
             <NavigationButton text="back" navTo="/"/>
             </div>
         </div>
