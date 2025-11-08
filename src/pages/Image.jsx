@@ -6,21 +6,27 @@ import gallery from "../assets/galleryicon.png";
 import camera from "../assets/cameraicon.png";
 
 function Image() {
-    return(
+    return (
         <div className="container">
             <div className="row">
-            <StartAnalysis/>
-            <div className="image__wrapper">
-                <div className="input__wrapper">
-            <ImageInput icon={gallery} text="blah blah blah" arrowDirection="southwest" />
-
+                <StartAnalysis />
+                <div className="image__wrapper">
+                    <div className="input__wrapper">
+                        <ImageInput
+                            icon={camera}
+                            text="Allow A.I. to scan your face"
+                            arrowDirection="northeast"
+                            onClick={() => { console.log("you clicked camera") }} />
+                    </div>
+                    <div className="input__wrapper">
+                        <ImageInput
+                            icon={gallery}
+                            text="Allow A.I. to accss your gallery"
+                            arrowDirection="southwest"
+                            onClick={() => { console.log("you clicked gallery") }} />
+                    </div>
                 </div>
-                <div className="input__wrapper">
-                    
-            <ImageInput icon={camera} text="blah blah blah" arrowDirection="northeast" />
-                </div>
-            </div>
-            <NavigationButton text="back" navTo="/"/>
+                <NavigationButton text="back" navTo="/" />
             </div>
         </div>
     )

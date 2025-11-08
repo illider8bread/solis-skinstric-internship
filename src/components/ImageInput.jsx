@@ -1,20 +1,22 @@
 import background from "../assets/form-bkg.png";
 import pointer from "../assets/pointer.png"
 
-function ImageInput({icon, text, arrowDirection}) {
+function ImageInput({ icon, text, arrowDirection, onClick }) {
 
-    return(
+    return (
         <div className="image__input--wrapper">
-            <img src={background} 
-            className="position__centered image__input--background"
-            alt="decorative background diamond, surrounding a button" />
-            <button className="image__input--button">
-                <img 
-                src={icon} 
-                className="image__input--icon"
-                alt="button icon" />
-                <p className="image__input--label"> {text} </p>
+            <div className="image__input--background">
+                <img src={background}
+                    className="input__background--image"
+                    alt="decorative background diamond, surrounding a button" />
                 <img src={pointer} className={`pointer ${arrowDirection}`} />
+                <p className={`image__input--label para__${arrowDirection}`}> {text} </p>
+            </div>
+            <button className="image__input--button" onClick={onClick}>
+                <img
+                    src={icon}
+                    className="image__input--icon"
+                    alt="button icon" />
             </button>
         </div>
     )
