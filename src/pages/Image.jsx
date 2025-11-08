@@ -5,7 +5,7 @@ import ImageInput from "../components/ImageInput";
 import gallery from "../assets/galleryicon.png";
 import camera from "../assets/cameraicon.png";
 
-function Image() {
+function Image({ createPrediction }) {
     return (
         <div className="container">
             <div className="row">
@@ -26,6 +26,12 @@ function Image() {
                             onClick={() => { console.log("you clicked gallery") }} />
                     </div>
                 </div>
+                <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef} // Use the ref passed from the parent
+                    style={{ display: 'none' }}
+                />
                 <NavigationButton text="back" navTo="/" />
             </div>
         </div>

@@ -50,7 +50,7 @@ async function createPrediction() {
       <Header />
       {/* <Landing /> */}
       {/* <Introduction createUser={createUser} loading={loading} created={userCreated} /> */}
-      <Image />
+      <Image createPrediction={createPrediction}/>
     </>
   )
 }
