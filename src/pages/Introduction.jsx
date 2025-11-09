@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StartAnalysis from "../components/StartAnalysis";
+import Analysis from "../components/Analysis";
 import background from "../assets/form-bkg.png"
 import Form from "../components/Form";
 import NavigationButton from "../components/NavigationButton";
@@ -29,7 +29,7 @@ function Introduction({createUser, loading, created}) {
     return(
         <div className="container">
             <div className="row">
-            <StartAnalysis />
+            <Analysis />
             <img src={background} className="form__background--img position__centered"/>
             {renderContent()}
             <NavigationButton text="back" navTo="/"/>
