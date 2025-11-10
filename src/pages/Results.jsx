@@ -1,10 +1,11 @@
 import NavigationButton from "../components/NavigationButton"
 import Analysis from "../components/Analysis"
 import background from "../assets/form-bkg.png"
+import { useNavigate } from "react-router"
 
 
 function Results() {
-
+    const navigate = useNavigate();
 
 
     return (
@@ -15,7 +16,9 @@ function Results() {
                 <img src={background} alt="" className="position__centered results__background" />
                 <div className="results">
                     <div className="results__wrapper">
-                        <div className="results__button">
+                        <div 
+                        className="results__button"
+                        onClick={()=>{navigate("/demographics")}}>
                             <p className="results__button--text">
                                 Demographics
                             </p>
@@ -38,6 +41,7 @@ function Results() {
                     </div>
                 </div>
                 <NavigationButton text="back" navTo="/" />
+                <NavigationButton text="get summary" navTo="/demographics"/>
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ function NavigationButton({ text, navTo }) {
     useEffect(()=>{
     if (text === "back") {
         setDirection("left")
-    } else if (text === "proceed") {
+    } else if (text === "proceed" || text === "get summary") {
         setDirection("rightside")
         console.log("proceed")
     }
@@ -19,7 +19,7 @@ function NavigationButton({ text, navTo }) {
 
     return (
         <button 
-        className={`navigation__button bottom ${direction} ${text==="proceed"? "proceed": ""}`}
+        className={`navigation__button bottom ${direction} ${direction==="rightside"? "proceed": ""}`}
         onClick={()=>{navigate(navTo)}}
         >
             <img

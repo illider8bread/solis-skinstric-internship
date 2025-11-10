@@ -25,7 +25,14 @@ input {
     background-color: inherit;
 }
 
-p {
+li, ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+p, h1, h2, h3, h4, h5 {
     margin: 0;
 }
 
@@ -113,6 +120,12 @@ TO START ANALYSIS
     left: 0;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+.analysis__subtitle{
+    font-weight: 400;
+    padding: 1rem 0;
+    font-size: 0.875rem;
 }
 
 /* 
@@ -460,4 +473,90 @@ RESULTS PAGE
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+/* 
+DEMOGRAPHICS PAGE
+*/
+.inverted{
+    background-color: var(--theme-highlight-grey);
+    filter: invert(1);
+}
+
+.demographics__header{
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+}
+
+.demographics__title{
+    font-size:3rem;
+    text-transform: uppercase;
+    padding: 0;
+    margin:0;
+    letter-spacing: -2%;
+}
+
+.demographics__subtitle{
+    text-transform: uppercase;
+    font-size:0.875rem;
+}
+
+.demographics__wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:1rem;
+}
+
+.demographics__summary,
+.demographics__details,
+.demographics__breakdown{
+    background-color: var(--theme-highlight-grey);
+    border-top: 1px var(--theme-black) solid;
+}
+
+.demographics__summaries{
+    height: 100%;
+    width:15%;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.demographics__summary{
+    width: 100%;
+    height: max(13vh, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.demographics__details{
+    height:70%;
+    width:60%;
+    padding: 1rem;
+}
+
+.demographics__details--title{
+    margin: 0;
+    padding: 0;
+    font-size: 2.25rem;
+}
+
+.demographics__breakdown{
+    height: 70%;
+    width: 25%;
+}
+
+.demographics__breakdown--item{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+}
+
+.radio{
+    padding-right: 1rem;
 }

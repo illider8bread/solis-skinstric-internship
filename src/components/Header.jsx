@@ -5,7 +5,7 @@ function Header() {
     const path = location.pathname;
 
     function renderSection() {
-        if(path === "/" || path === "/"){
+        if(path === "/" || path === "/introduction" || path === "/image"){
             return ("INTRO")
         } else {
             return ("ANALYSIS")

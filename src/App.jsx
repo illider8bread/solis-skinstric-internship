@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Image from './pages/Image.jsx';
 import Results from './pages/Results.jsx';
 import { Routes, Route } from 'react-router';
+import Demographics from './pages/Demographics.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -70,6 +71,9 @@ function App() {
         <Route 
         path="/results" 
         element={<Results />}/>
+        <Route
+        path="/demographics"
+        element={<Demographics/>}/>
       </Routes>
     </>
   )

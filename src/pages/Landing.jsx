@@ -86,7 +86,7 @@ function Landing() {
                             className="navigation__button landing__button"
                             onMouseEnter={slideOff}
                             onMouseLeave={slideOn}
-                            onClick={navigate("/introduction")}
+                            onClick={()=> navigate("/introduction")}
                         >
                             <p className="navigation__button--text">
                                 Take Test
