@@ -74,10 +74,10 @@ function Image({ createPrediction, loading, created, setCreated }) {
                     </div>
                 )}
                 {created ? 
-                <Popup text="Image Analized Successfully!" onClickOne={()=>{setCreated(false)}} buttonTextOne="Upload New" onClickTwo={()=>{navigate('/')}} buttonTextTwo="Proceed" position="gallery" />
+                <Popup text="Image Analized Successfully!" onClickOne={()=>{setCreated(false)}} buttonTextOne="Upload New" onClickTwo={()=>{navigate('/results')}} buttonTextTwo="Proceed" position="gallery" />
                 : <></>}
                 {created ? 
-                <NavigationButton text="proceed" navTo="/" />
+                <NavigationButton text="proceed" navTo="/results" />
                 : <></>}
                 <NavigationButton text="back" navTo="/" />
             </div>

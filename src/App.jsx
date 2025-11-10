@@ -6,6 +6,7 @@ import Introduction from './pages/Introduction.jsx';
 import { useState } from 'react';
 import Image from './pages/Image.jsx';
 import Results from './pages/Results.jsx';
+import { Routes, Route } from 'react-router';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -56,10 +57,20 @@ function App() {
   return (
     <>
       <Header />
-      {/* <Landing /> */}
-      {/* <Introduction createUser={createUser} loading={loading} created={userCreated} /> */}
-      {/* <Image createPrediction={createPrediction} loading={loading} created={predictionCreated} setCreated={forceRetry} /> */}
-      <Results />
+      <Routes>
+        <Route 
+        path="/" 
+        element={<Landing />}/>
+        <Route 
+        path="/introduction" 
+        element={<Introduction createUser={createUser} loading={loading} created={userCreated} />}/>
+        <Route 
+        path="/image" 
+        element={<Image createPrediction={createPrediction} loading={loading} created={predictionCreated} setCreated={forceRetry} />}/>
+        <Route 
+        path="/results" 
+        element={<Results />}/>
+      </Routes>
     </>
   )
 }

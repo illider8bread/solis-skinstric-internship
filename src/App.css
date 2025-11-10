@@ -445,7 +445,6 @@ RESULTS PAGE
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     cursor:pointer;
 }
 
@@ -457,7 +456,8 @@ RESULTS PAGE
     text-transform: uppercase;
     transform: rotate(-45deg);
     width: 80%;
-    font-size: min(1rem, 2.5vw);
+    font-size: min(0.875rem, 2.5vw);
     margin: 0;
     padding: 0;
+    text-align: center;
 }

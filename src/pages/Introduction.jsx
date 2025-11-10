@@ -17,7 +17,7 @@ function Introduction({createUser, loading, created}) {
         } else if(loading){
             return(
                 <div className="position__centered processing">
-                    Processing Submission...
+                    Processing Submission ...
                 </div>
             )
         } else{
@@ -33,7 +33,7 @@ function Introduction({createUser, loading, created}) {
             <img src={background} className="form__background--img position__centered"/>
             {renderContent()}
             <NavigationButton text="back" navTo="/"/>
-            {created ? <NavigationButton text="proceed" navTo="/"/> : <></>}
+            {created ? <NavigationButton text="proceed" navTo="/image"/> : <></>}
             </div>
         </div>
     )
