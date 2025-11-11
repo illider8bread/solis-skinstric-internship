@@ -26,13 +26,7 @@ function Demographics({ createPrediction, predictions }) {
                 };
             });
     }
-
-    const findMostConfidence = (arr) => {
-        return arr.reduce((maxObj, currentObj) => {
-            return (currentObj.value > maxObj.value) ? currentObj : maxObj;
-        });
-    };
-
+    
     function sortByRange(arr) {
         return arr.sort((a, b) => {
             const getRangeStart = (key) => {
@@ -45,14 +39,35 @@ function Demographics({ createPrediction, predictions }) {
         });
     }
 
+    const findMostConfidence = (arr) => {
+        return arr.reduce((maxObj, currentObj) => {
+            return (currentObj.value > maxObj.value) ? currentObj : maxObj;
+        });
+    };
+   
     const createMostConfidence = () => {
         return [
-            { race: findMostConfidence(race) },
-            { age: findMostConfidence(age) },
-            { sex: findMostConfidence(sex) }
+            findMostConfidence(race),
+            findMostConfidence(age),
+            findMostConfidence(sex)
         ]
     }
 
+function changeMostConfidence(newObject) {
+    let targetIndex;
+    if(selected==="race"){
+    targetIndex="0";
+    }else if(selected==="age"){
+    targetIndex="1";
+    }else if(selected==="sex"){
+    targetIndex="2";
+    }
+    const newArray = [...mostConfidence];
+    newArray[targetIndex] = newObject;
+    setMostConfidence(newArray)
+}
+
+    
     useEffect(() => {
         if (Object.keys(predictions).length > 0) {
             setRace(formatPredictions(predictions.race))
@@ -65,9 +80,12 @@ function Demographics({ createPrediction, predictions }) {
         if (sex.length > 0 && age.length > 0 && race.length > 0) {
             setMostConfidence(createMostConfidence())
         }
-        console.log(age)
     }, [sex, race, age])
 
+    useEffect(()=>{
+        console.log("Array of most confident predictions has changed")
+        console.log(mostConfidence)
+    },[mostConfidence])
 
     useEffect(() => {
         createPrediction(localStorage.getItem("image"))
@@ -89,7 +107,7 @@ function Demographics({ createPrediction, predictions }) {
                 <div className="demographics__wrapper">
                     <Summaries mostConfident={mostConfidence} selected={selected} setSelected={changeSelected} />
                     <Details mostConfident={mostConfidence} selected={selected} />
-                    <Breakdown race={race} age={age} sex={sex} selected={selected} confidence={findMostConfidence} />
+                    <Breakdown race={race} age={age} sex={sex} selected={selected} confidence={findMostConfidence} changeMostConfident={changeMostConfidence} />
                 </div>
                 <NavigationButton text="back" navTo="/results" />
             </div>

@@ -2,16 +2,16 @@ import { useEffect, useState } from "react"
 
 
 function Summaries({ mostConfident, selected, setSelected }) {
-    const loading = "Fetching..."
+    const loading = ""
     const [race, setRace]=useState(loading);
     const [age, setAge]=useState(loading);
     const [sex, setSex]=useState(loading);
 
     function setDisplay(){
         if(mostConfident.length>0){
-            setRace(mostConfident[0].race.key)
-            setAge(mostConfident[1].age.key)
-            setSex(mostConfident[2].sex.key)
+            setRace(mostConfident[0].key)
+            setAge(mostConfident[1].key)
+            setSex(mostConfident[2].key)
         }
     }
 

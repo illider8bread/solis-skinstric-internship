@@ -2,16 +2,16 @@ import { useEffect, useState } from "react"
 import DonutChart from "./DemographicsChart"
 
 function Details({ mostConfident, selected }) {
-    const [display, setDisplay] = useState({ Loading: "Loading" })
+    const [display, setDisplay] = useState({ key: "", value:" " })
 
     function findDisplay() {
         if (mostConfident.length > 0) {
             if (selected === "race") {
-                setDisplay(mostConfident[0].race)
+                setDisplay(mostConfident[0])
             } else if (selected === "age") {
-                setDisplay(mostConfident[0].age)
+                setDisplay(mostConfident[1])
             } else if (selected === "sex") {
-                setDisplay(mostConfident[0].sex)
+                setDisplay(mostConfident[2])
             }
         }
 
@@ -19,12 +19,12 @@ function Details({ mostConfident, selected }) {
 
     useEffect(() => {
         findDisplay()
-    }, [mostConfident])
+    }, [selected, mostConfident])
 
     return (
         <div className="demographics__details">
             <h2 className="demographics__details--title">
-                {display.key}
+                {display.key} <span className="details__span">{selected==="age"?"y.o.":""}</span>
             </h2>
             <div className="demographics__details--percentage">
                 <div className="percentage__wrapper">

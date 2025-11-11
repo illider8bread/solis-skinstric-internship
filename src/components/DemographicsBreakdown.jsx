@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import radio from "../assets/radio-btn.png";
 import selectedRadio from "../assets/radio-btn-selected.png"
 
-function Breakdown({ race, age, sex, selected, confidence }) {
+function Breakdown({ race, age, sex, selected, confidence, changeMostConfident }) {
     const [dataset, setDataset] = useState([])
     const [confidentDemo, setConfidentDemo] = useState()
 
@@ -35,6 +35,10 @@ function Breakdown({ race, age, sex, selected, confidence }) {
             setConfidentDemo(confidence(dataset))
         }
     }, [dataset])
+
+    useEffect(()=>{
+        changeMostConfident(confidentDemo)
+    },[confidentDemo])
 
     return (
         <div className="demographics__breakdown">
