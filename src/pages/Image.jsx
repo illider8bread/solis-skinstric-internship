@@ -24,6 +24,8 @@ function Image({ createPrediction, loading, created, setCreated }) {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPhoto(reader.result);
+                localStorage.setItem("image", reader.result)
+                // REMOVE ABOVE LINE
             };
             reader.readAsDataURL(file);
         }

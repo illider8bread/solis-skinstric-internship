@@ -3,7 +3,7 @@ import Header from "./components/Header.jsx"
 import axios from 'axios'
 import Landing from './pages/Landing.jsx';
 import Introduction from './pages/Introduction.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from './pages/Image.jsx';
 import Results from './pages/Results.jsx';
 import { Routes, Route } from 'react-router';
@@ -13,6 +13,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [predictionCreated, setPredictionCreated] = useState(false);
+  const [predictions, setPredictions] = useState({});
 
   async function createUser(name, location) {
     setLoading(true);
@@ -43,6 +44,7 @@ function App() {
     try {
       const response = await axios.post(endpoint, postData);
       console.log('Prediction created:', response.data);
+      setPredictions(response.data.data)
     } catch (error) {
       console.error('Error creating prediction:', error);
     } finally {
@@ -59,21 +61,22 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route 
-        path="/" 
-        element={<Landing />}/>
-        <Route 
-        path="/introduction" 
-        element={<Introduction createUser={createUser} loading={loading} created={userCreated} />}/>
-        <Route 
-        path="/image" 
-        element={<Image createPrediction={createPrediction} loading={loading} created={predictionCreated} setCreated={forceRetry} />}/>
-        <Route 
-        path="/results" 
-        element={<Results />}/>
         <Route
-        path="/demographics"
-        element={<Demographics/>}/>
+          path="/"
+          element={<Landing />} />
+        <Route
+          path="/introduction"
+          element={<Introduction createUser={createUser} loading={loading} created={userCreated} />} />
+        <Route
+          path="/image"
+          element={<Image createPrediction={createPrediction} loading={loading} created={predictionCreated} setCreated={forceRetry} />} />
+        <Route
+          path="/results"
+          element={<Results />} />
+        <Route
+          path="/demographics"
+          element={<Demographics createPrediction={createPrediction} predictions={predictions} />} />
+          {/* remove createPrediction above */}
       </Routes>
     </>
   )

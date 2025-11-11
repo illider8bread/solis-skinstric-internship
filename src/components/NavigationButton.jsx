@@ -12,7 +12,6 @@ function NavigationButton({ text, navTo }) {
         setDirection("left")
     } else if (text === "proceed" || text === "get summary") {
         setDirection("rightside")
-        console.log("proceed")
     }
     },[])
 
