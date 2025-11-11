@@ -1,33 +1,44 @@
 import { useEffect, useState } from "react"
 
+
 function Summaries({ mostConfident, selected, setSelected }) {
-    const placeholder = "Fetching..."
+    const loading = "Fetching..."
+    const [race, setRace]=useState(loading);
+    const [age, setAge]=useState(loading);
+    const [sex, setSex]=useState(loading);
+
+    function setDisplay(){
+        if(mostConfident.length>0){
+            setRace(mostConfident[0].race.key)
+            setAge(mostConfident[1].age.key)
+            setSex(mostConfident[2].sex.key)
+        }
+    }
+
+    useEffect(()=>{
+        setDisplay()
+    },[mostConfident])
 
 
-
-    useEffect(() => {
-        console.log("made it to summaries")
-        console.log(mostConfident)
-    }, [mostConfident])
 
     return (
             <div className="demographics__summaries">
                 <div id="race"
                     className={`demographics__summary ${selected === "race" ? "inverted" : ""}`}
                     onClick={() => { setSelected("race") }}>
-                    <p className="demographics__summary--text">{mostConfident[0].race.key}</p>
+                    <p className="demographics__summary--text">{race}</p>
                     <p className="demographics__summary--text">Race</p>
                 </div>
                 <div id="age"
                     className={`demographics__summary ${selected === "age" ? "inverted" : ""}`}
                     onClick={() => { setSelected("age") }}>
-                    <p className="demographics__summary--text">{mostConfident[1].age.key}</p>
+                    <p className="demographics__summary--text">{age}</p>
                     <p className="demographics__summary--text">Age</p>
                 </div>
                 <div id="sex"
                     className={`demographics__summary ${selected === "sex" ? "inverted" : ""}`}
                     onClick={() => { setSelected("sex") }}>
-                    <p className="demographics__summary--text">{mostConfident[2].sex.key}</p>
+                    <p className="demographics__summary--text">{sex}</p>
                     <p className="demographics__summary--text">Sex</p>
                 </div>
             </div>

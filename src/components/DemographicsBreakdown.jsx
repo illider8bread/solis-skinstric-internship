@@ -11,13 +11,10 @@ function Breakdown({ race, age, sex, selected, confidence }) {
             setConfidentDemo(confidence(race,"race"))
             if (selected === "race") {
                 setDataset(race)
-                
             } else if (selected === "age") {
                 setDataset(age)
-                // setConfidentDemo(confidence(age))
             } else if (selected === "sex") {
                 setDataset(sex)
-                // setConfidentDemo(confidence(sex))
             }
         }
 
@@ -28,6 +25,7 @@ function Breakdown({ race, age, sex, selected, confidence }) {
             setDataset(race)
         }
     }, [race])
+    
     useEffect(() => {
         selectDataset()
     }, [selected])
