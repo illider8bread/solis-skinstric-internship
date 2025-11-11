@@ -12,6 +12,7 @@ import Popup from "../components/Popup";
 function Image({ createPrediction, loading, created, setCreated }) {
     const navigate = useNavigate();
     const [photo, setPhoto] = useState(null);
+    const [takePhoto, setTakePhoto] = useState(false)
     const fileInputRef = useRef(null);
 
     const triggerUpload = () => {
@@ -57,7 +58,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
                                 icon={camera}
                                 text="Allow A.I. to scan your face"
                                 arrowDirection="northeast"
-                                onClick={() => { console.log("you clicked camera") }} />
+                                onClick={() => { setTakePhoto(true) }} />
                         </div>
                         <div className="input__wrapper">
                             <ImageInput
@@ -75,12 +76,15 @@ function Image({ createPrediction, loading, created, setCreated }) {
                         </div>
                     </div>
                 )}
-                {created ? 
-                <Popup text="Image Analized Successfully!" onClickOne={()=>{setCreated(false)}} buttonTextOne="Upload New" onClickTwo={()=>{navigate('/results')}} buttonTextTwo="Proceed" position="gallery" />
-                : <></>}
-                {created ? 
-                <NavigationButton text="proceed" navTo="/results" />
-                : <></>}
+                {takePhoto ?
+                    <Popup text="Allow A.I. to access your camera?" onClickOne={() => { setTakePhoto(false) }} buttonTextOne="Deny" onClickTwo={() => { navigate('/webcam') }} buttonTextTwo="Allow" position="camera" />
+                    : <></>}
+                {created ?
+                    <Popup text="Image Analized Successfully!" onClickOne={() => { setCreated(false) }} buttonTextOne="Upload New" onClickTwo={() => { navigate('/results') }} buttonTextTwo="Proceed" position="gallery" />
+                    : <></>}
+                {created ?
+                    <NavigationButton text="proceed" navTo="/results" />
+                    : <></>}
                 <NavigationButton text="back" navTo="/" />
             </div>
         </div>

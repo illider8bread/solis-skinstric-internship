@@ -389,6 +389,7 @@ POP UP MENU
     background-color: var(--theme-black);
     color: #FCFCFC;
     top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -397,11 +398,11 @@ POP UP MENU
 }
 
 .popup__gallery {
-    right: 25%;
+    right: 30%;
 }
 
 .popup__camera {
-    left: 25%;
+    left: 30%;
 }
 
 .popup__buttons--wrapper {

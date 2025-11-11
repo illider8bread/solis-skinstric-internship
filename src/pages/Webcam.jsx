@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-function Webcam() {
+function WebcamPage() {
     return(
         <>
+        quick test
         </>
     )
 }
-export default Webcam
+export default WebcamPage
