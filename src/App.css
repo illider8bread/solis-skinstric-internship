@@ -483,6 +483,10 @@ DEMOGRAPHICS PAGE
     filter: invert(1);
 }
 
+#white{
+    filter: invert(1);
+}
+
 .demographics__header{
     padding: 1rem 0;
     margin-bottom: 3rem;
@@ -532,6 +536,12 @@ DEMOGRAPHICS PAGE
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
+    cursor: pointer;
+}
+
+.demographics__summary--text{
+    text-transform: uppercase;
+    font-weight:600;
 }
 
 .demographics__details{
@@ -555,6 +565,11 @@ DEMOGRAPHICS PAGE
     display: flex;
     justify-content: space-between;
     padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+
+.breakdown__item--para{
+    text-transform: uppercase;
 }
 
 .radio{
