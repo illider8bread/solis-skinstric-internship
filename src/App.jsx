@@ -8,7 +8,7 @@ import Image from './pages/Image.jsx';
 import Results from './pages/Results.jsx';
 import { Routes, Route } from 'react-router';
 import Demographics from './pages/Demographics.jsx';
-import WebcamPage from './pages/Webcam.jsx';
+import Camera from './pages/Camera.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -79,8 +79,8 @@ function App() {
           element={<Demographics createPrediction={createPrediction} predictions={predictions} />} />
           {/* remove createPrediction above */}
         <Route 
-          path="/webcam"
-          element={<WebcamPage />} />
+          path="/camera"
+          element={<Camera createPrediction={createPrediction} loading={loading} created={predictionCreated}/>} />
       </Routes>
     </>
   )

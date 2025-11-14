@@ -5,8 +5,8 @@ import NavigationButton from "../components/NavigationButton";
 import ImageInput from "../components/ImageInput";
 import gallery from "../assets/galleryicon.png";
 import camera from "../assets/cameraicon.png";
-import loadingbackground from "../assets/preparing.png";
 import Popup from "../components/Popup";
+import Uploading from "../components/ImagesUploading";
 
 
 function Image({ createPrediction, loading, created, setCreated }) {
@@ -45,12 +45,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
             <div className="row">
                 <Analysis />
                 {loading ? (
-                    <div className="loading__wrapper">
-                        <img src={loadingbackground} className="position__centered" alt="" />
-                        <p className="loading__para">
-                            Preparing your Analysis ...
-                        </p>
-                    </div>
+                    <Uploading/>
                 ) : (
                     <div className="image__wrapper">
                         <div className="input__wrapper">
@@ -77,7 +72,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
                     </div>
                 )}
                 {takePhoto ?
-                    <Popup text="Allow A.I. to access your camera?" onClickOne={() => { setTakePhoto(false) }} buttonTextOne="Deny" onClickTwo={() => { navigate('/webcam') }} buttonTextTwo="Allow" position="camera" />
+                    <Popup text="Allow A.I. to access your camera?" onClickOne={() => { setTakePhoto(false) }} buttonTextOne="Deny" onClickTwo={() => { navigate('/camera') }} buttonTextTwo="Allow" position="camera" />
                     : <></>}
                 {created ?
                     <Popup text="Image Analized Successfully!" onClickOne={() => { setCreated(false) }} buttonTextOne="Upload New" onClickTwo={() => { navigate('/results') }} buttonTextTwo="Proceed" position="gallery" />

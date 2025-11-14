@@ -14,6 +14,7 @@ function Header() {
 
     return (
         <header>
+            {path === "/camera" ? (<></>) : (<>
             <div className="header__logo--wrapper">
                 <h4 className="header__logo">
                     skinstric
@@ -29,8 +30,7 @@ function Header() {
                     </button>
                 </div>)
                 : null}
-
-
+            </>)}
         </header>
     )
 }

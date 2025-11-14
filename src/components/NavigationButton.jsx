@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import btn from '../assets/buttin-icon-shrunk.png';
 
 
-function NavigationButton({ text, navTo }) {
+function NavigationButton({ text, navTo, classes, onClick }) {
     const navigate = useNavigate();
     const [direction, setDirection] = useState("")
 
@@ -18,8 +18,8 @@ function NavigationButton({ text, navTo }) {
 
     return (
         <button 
-        className={`navigation__button bottom ${direction} ${direction==="rightside"? "proceed": ""}`}
-        onClick={()=>{navigate(navTo)}}
+        className={`navigation__button bottom ${direction} ${direction==="rightside"? "proceed": ""} ${classes? classes : ""}`}
+        onClick={navTo===""? onClick : ()=>{navigate(navTo)}}
         >
             <img
                 src={btn}
