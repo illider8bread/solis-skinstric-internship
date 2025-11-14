@@ -40,7 +40,7 @@ function Results() {
                         </div>
                     </div>
                 </div>
-                <NavigationButton text="back" navTo="/" />
+                <NavigationButton text="back" navTo="/image" />
                 <NavigationButton text="get summary" navTo="/demographics"/>
             </div>
         </div>

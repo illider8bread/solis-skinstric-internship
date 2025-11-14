@@ -64,6 +64,7 @@ button {
     color: #FCFCFC;
     background-color: var(--theme-black);
     font-size: 10px;
+    cursor: pointer;
 }
 
 .bottom {
@@ -508,6 +509,25 @@ DEMOGRAPHICS PAGE
 .demographics__subtitle{
     text-transform: uppercase;
     font-size:0.875rem;
+}
+
+.change__buttons--wrapper{
+    display: flex;
+    position: absolute;
+    z-index: 5;
+    bottom: 1rem;
+    right: 1rem;
+    gap: 1rem;
+}
+
+.change__button{
+    font-size: 1rem;
+    height: auto;
+}
+
+.button__reset{
+    border: solid var(--theme-highlight-grey) 1px;
+    background-color: black;
 }
 
 .demographics__wrapper{

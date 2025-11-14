@@ -52,8 +52,9 @@ function Camera({ createPrediction, loading, created }) {
     }, [loadingDelay])
 
     useEffect(() => {
-        console.log("predictions have been created")
-        console.log(created)
+        if (created){
+            navigate("/results")
+        }
     }, [created])
 
     return (

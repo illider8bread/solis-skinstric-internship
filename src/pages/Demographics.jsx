@@ -26,7 +26,7 @@ function Demographics({ createPrediction, predictions }) {
                 };
             });
     }
-    
+
     function sortByRange(arr) {
         return arr.sort((a, b) => {
             const getRangeStart = (key) => {
@@ -44,53 +44,43 @@ function Demographics({ createPrediction, predictions }) {
             return (currentObj.value > maxObj.value) ? currentObj : maxObj;
         });
     };
-   
-    const createMostConfidence = () => {
-        return [
-            findMostConfidence(race),
-            findMostConfidence(age),
-            findMostConfidence(sex)
-        ]
+
+    function changeMostConfidence(newObject) {
+        let targetIndex;
+        if (selected === "race") {
+            targetIndex = 0;
+        } else if (selected === "age") {
+            targetIndex = 1;
+        } else if (selected === "sex") {
+            targetIndex = 2;
+        }
+
+        const newArray = [...mostConfidence];
+        newArray[targetIndex] = newObject;
+        setMostConfidence(newArray)
     }
 
-function changeMostConfidence(newObject) {
-    let targetIndex;
-    if(selected==="race"){
-    targetIndex="0";
-    }else if(selected==="age"){
-    targetIndex="1";
-    }else if(selected==="sex"){
-    targetIndex="2";
-    }
-    const newArray = [...mostConfidence];
-    newArray[targetIndex] = newObject;
-    setMostConfidence(newArray)
-}
 
-    
     useEffect(() => {
+        if (Object.keys(predictions).length = 0) {
+            createPrediction(localStorage.getItem("image"))
+        }
+
         if (Object.keys(predictions).length > 0) {
-            setRace(formatPredictions(predictions.race))
-            setAge(sortByRange(formatPredictions(predictions.age)))
-            setSex(formatPredictions(predictions.gender))
+            const newRace = formatPredictions(predictions.race);
+            const newAge = sortByRange(formatPredictions(predictions.age));
+            const newSex = formatPredictions(predictions.gender);
+
+            setRace(newRace);
+            setAge(newAge);
+            setSex(newSex);
+            setMostConfidence([
+                findMostConfidence(newRace),
+                findMostConfidence(newAge),
+                findMostConfidence(newSex)
+            ]);
         }
-    }, [predictions])
-
-    useEffect(() => {
-        if (sex.length > 0 && age.length > 0 && race.length > 0) {
-            setMostConfidence(createMostConfidence())
-        }
-    }, [sex, race, age])
-
-    useEffect(()=>{
-        console.log("Array of most confident predictions has changed")
-        console.log(mostConfidence)
-    },[mostConfidence])
-
-    useEffect(() => {
-        createPrediction(localStorage.getItem("image"))
-    }, [])
-    // REMOVE THIS USEEFFECT AND THE CREATE PREDICTION PARAM ABOVE
+    }, [predictions]);
 
     return (
         <div className="container">
@@ -110,6 +100,24 @@ function changeMostConfidence(newObject) {
                     <Breakdown race={race} age={age} sex={sex} selected={selected} confidence={findMostConfidence} changeMostConfident={changeMostConfidence} />
                 </div>
                 <NavigationButton text="back" navTo="/results" />
+                <div className="change__buttons--wrapper">
+                    <button
+                        className=" change__button button__reset black__btn inverted"
+                        onClick={() => {
+                            setMostConfidence([
+                                findMostConfidence(race),
+                                findMostConfidence(age),
+                                findMostConfidence(sex)
+                            ])
+                        }} >
+                        Reset
+                    </button>
+                    <button
+                        className=" change__button black__btn"
+                        onClick={() => { }}>
+                        Confirm
+                    </button>
+                </div>
             </div>
         </div>
     )

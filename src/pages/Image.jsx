@@ -33,7 +33,6 @@ function Image({ createPrediction, loading, created, setCreated }) {
     };
 
     useEffect(() => {
-        console.log(photo)
         if (photo != null) {
             createPrediction(photo)
         }
@@ -80,7 +79,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
                 {created ?
                     <NavigationButton text="proceed" navTo="/results" />
                     : <></>}
-                <NavigationButton text="back" navTo="/" />
+                <NavigationButton text="back" navTo="/introduction" />
             </div>
         </div>
     )

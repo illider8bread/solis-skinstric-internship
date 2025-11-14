@@ -37,7 +37,9 @@ function Breakdown({ race, age, sex, selected, confidence, changeMostConfident }
     }, [dataset])
 
     useEffect(()=>{
-        changeMostConfident(confidentDemo)
+        if(confidentDemo!=undefined){
+            changeMostConfident(confidentDemo)
+        }
     },[confidentDemo])
 
     return (

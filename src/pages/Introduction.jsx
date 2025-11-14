@@ -7,7 +7,7 @@ import NavigationButton from "../components/NavigationButton";
 function Introduction({createUser, loading, created}) {
 
     function renderContent(){
-        if(created){
+        if(sessionStorage.getItem("usercreated")===true || created){
             return(
                 <div className="position__centered submitted">
                     Thank You!<br/>

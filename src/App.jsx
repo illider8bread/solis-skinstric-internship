@@ -13,8 +13,8 @@ import Camera from './pages/Camera.jsx';
 function App() {
   const [loading, setLoading] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
-  const [predictionCreated, setPredictionCreated] = useState(false);
   const [predictions, setPredictions] = useState({});
+  const [predictionCreated, setPredictionCreated] = useState(false);
 
   async function createUser(name, location) {
     setLoading(true);
@@ -32,6 +32,7 @@ function App() {
       console.log('Request completed');
       setLoading(false);
       setUserCreated(true);
+      sessionStorage.setItem("usercreated", true)
     }
   }
 
@@ -44,14 +45,13 @@ function App() {
 
     try {
       const response = await axios.post(endpoint, postData);
-      console.log('Prediction created:', response.data);
+      console.log('Prediction created:', response.data.data);
       setPredictions(response.data.data)
     } catch (error) {
       console.error('Error creating prediction:', error);
     } finally {
       setLoading(false)
       setPredictionCreated(true)
-      console.log('Request completed');
     }
   }
   function forceRetry(bool) {
