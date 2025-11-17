@@ -7,29 +7,46 @@ import emphasisTriangle from "../assets/Rectangle-bkg-emphasis.png"
 
 function Landing() {
     const navigate = useNavigate();
-    const [buttonVisible, setButtonVisible] = useState(true);
 
     const slideOff = () => {
-        gsap.to("#animated__btn", {
-            x: "-100%",
-            duration: 0.5,
-            onComplete: () => {
-                setButtonVisible(false);
-            }
-        });
+        let timeline = gsap.timeline()
+        timeline.to("#animated__btn",
+            {
+                x: "-200%",
+                duration: 1
+            })
+            .to(".title",
+                {
+                    x: "-40%",
+                    duration: 1
+                },
+                "-=1")
+            .to("#triangle1",
+                {
+                    scale:1.4,
+                    opacity: 0.5,
+                    duration:1
+                },
+                "-=1")
+            .to("#triangle2",
+                {
+                    scale:1.2,
+                    opacity:0.75,
+                    duration:1
+                },
+                "-=1")
+
     };
 
     const slideOn = () => {
-        gsap.set("#animated__btn", { x: "-100%", autoAlpha: 0 });
-
-        gsap.to("#animated__btn", {
-            x: "0%",
-            autoAlpha: 1,
-            duration: 0.5,
-            onStart: () => {
-                setButtonVisible(true);
-            }
-        });
+        gsap.to("#animated__btn, .title, #triangle1, #triangle2",
+            {
+                x: "0%",
+                scale:1,
+                opacity:1,
+                duration: 1
+            })
+        
     };
 
     useEffect(() => {
@@ -43,50 +60,57 @@ function Landing() {
         <div className="container">
             <div className="row">
                 <section className="landing">
-                    {buttonVisible ? (
-                        <div
-                            id="animated__btn"
-                            className="button__left"
-                        >
+                    <div
+                        id="animated__btn"
+                        className="button__left"
+                    >
+                        <img
+                            src={triangle}
+                            className="button__frame"
+                            alt="a decorative triangle"
+                        />
+
+                        <button className="navigation__button landing__button">
                             <img
-                                src={triangle}
-                                className="button__frame"
-                                id="button__frame--left"
-                                alt="a decorative triangle"
+                                src={btn}
+                                className="button__icon"
+                                alt="directional triangle inside of a rotated square, pointing left"
                             />
 
-                            <button className="navigation__button landing__button">
-                                <img
-                                    src={btn}
-                                    className="button__icon"
-                                    alt="directional triangle inside of a rotated square, pointing left"
-                                />
-
-                                <p className="navigation__button--text">
-                                    Discover A.I.
-                                </p>
-                            </button>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
-
+                            <p className="navigation__button--text">
+                                Discover A.I.
+                            </p>
+                        </button>
+                    </div>
                     <div className="title">
                         Sophisticated skincare
                     </div>
                     <div className="button__right">
                         <img
-                            src={buttonVisible? triangle : emphasisTriangle}
+                            src={triangle}
                             className="button__frame right"
-                            id="button__frame--right"
+                            id="triangle1"
                             alt="a decorative triangle"
                         />
+                        <img
+                            src={triangle}
+                            className="button__frame right"
+                            id="triangle2"
+                            alt="a decorative triangle"
+                        />
+                        <img
+                            src={triangle}
+                            className="button__frame right"
+                            id="triangle3"
+                            alt="a decorative triangle"
+                        />
+
 
                         <button
                             className="navigation__button landing__button"
                             onMouseEnter={slideOff}
                             onMouseLeave={slideOn}
-                            onClick={()=> navigate("/introduction")}
+                            onClick={() => navigate("/introduction")}
                         >
                             <p className="navigation__button--text">
                                 Take Test

@@ -175,6 +175,7 @@ LANDING PAGE
 
 .button__frame {
     width: 100%;
+    position: absolute;
 }
 
 .navigation__button {
