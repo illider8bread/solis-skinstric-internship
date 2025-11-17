@@ -45,14 +45,14 @@ button {
 .container {
     width: 100%;
     height: calc(97vh - 4rem);
-    padding: 2rem;
     overflow: hidden;
 }
 
 .row {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
     position: relative;
+    margin: 2rem;    
 }
 
 .black__btn {
@@ -165,6 +165,13 @@ LANDING PAGE
     position: relative;
 }
 
+#nav__left{
+    left:2rem;
+}
+#nav__right{
+    right: 2rem;
+}
+
 .button__left {
     justify-content: flex-start;
 }
@@ -206,8 +213,8 @@ LANDING PAGE
     width: 30vw;
     max-width: 20rem;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2rem;
+    left: 2rem;
 }
 
 .position__centered {
