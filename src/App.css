@@ -25,7 +25,8 @@ input {
     background-color: inherit;
 }
 
-li, ul{
+li,
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -33,7 +34,12 @@ li, ul{
 }
 
 
-p, h1, h2, h3, h4, h5 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
     margin: 0;
 }
 
@@ -43,6 +49,7 @@ button {
 }
 
 .container {
+    z-index: 1;
     width: 100%;
     height: calc(97vh - 4rem);
     overflow: hidden;
@@ -52,7 +59,7 @@ button {
     width: calc(100% - 4rem);
     height: calc(100% - 4rem);
     position: relative;
-    margin: 2rem;    
+    margin: 2rem;
 }
 
 .black__btn {
@@ -124,10 +131,34 @@ TO START ANALYSIS
     font-weight: 600;
 }
 
-.analysis__subtitle{
+.analysis__subtitle {
     font-weight: 400;
     padding: 1rem 0;
     font-size: 0.875rem;
+}
+
+/* 
+BACKGROUND SQUARES
+*/
+
+#background {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.background__square {
+    position: absolute;
+    height: 42.5rem;
+    margin-top: 9rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: -50%;
+    right: -50%;
 }
 
 /* 
@@ -143,7 +174,7 @@ LANDING PAGE
 }
 
 .right {
-    transform: scale(-1);
+    transform: scaleY(-1);
 }
 
 
@@ -165,10 +196,11 @@ LANDING PAGE
     position: relative;
 }
 
-#nav__left{
-    left:2rem;
+#nav__left {
+    left: 2rem;
 }
-#nav__right{
+
+#nav__right {
     right: 2rem;
 }
 
@@ -197,7 +229,7 @@ LANDING PAGE
     cursor: pointer;
     position: absolute;
     background-color: transparent;
-    z-index:2;
+    z-index: 2;
 }
 
 .button__icon {
@@ -217,6 +249,15 @@ LANDING PAGE
     left: 2rem;
 }
 
+#triangle1,
+#triangle2,
+#triangle3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(-1);
+}
+
 .position__centered {
     position: absolute;
     top: 50%;
@@ -227,11 +268,6 @@ LANDING PAGE
 /* 
 NEW USER FORM
 */
-
-.form__background--img {
-    z-index: 5;
-    height: 100%;
-}
 
 .form__wrapper {
     max-width: 41rem;
@@ -461,26 +497,26 @@ RESULTS PAGE
     transform: rotate(45deg);
     display: flex;
     flex-wrap: wrap;
-    gap:0.5rem;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: space-between;
 }
 
-.results__button{
+.results__button {
     background-color: var(--theme-highlight-grey);
-    width:48%;
-    height:48%;
+    width: 48%;
+    height: 48%;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.results__button:hover{
+.results__button:hover {
     background-color: #E1E1E2;
 }
 
-.results__button--text{
+.results__button--text {
     text-transform: uppercase;
     transform: rotate(-45deg);
     width: 80%;
@@ -493,33 +529,33 @@ RESULTS PAGE
 /* 
 DEMOGRAPHICS PAGE
 */
-.inverted{
+.inverted {
     filter: invert(1);
 }
 
-#white{
+#white {
     filter: invert(1);
 }
 
-.demographics__header{
+.demographics__header {
     padding: 1rem 0;
     margin-bottom: 3rem;
 }
 
-.demographics__title{
-    font-size:3rem;
+.demographics__title {
+    font-size: 3rem;
     text-transform: uppercase;
     padding: 0;
-    margin:0;
+    margin: 0;
     letter-spacing: -2%;
 }
 
-.demographics__subtitle{
+.demographics__subtitle {
     text-transform: uppercase;
-    font-size:0.875rem;
+    font-size: 0.875rem;
 }
 
-.change__buttons--wrapper{
+.change__buttons--wrapper {
     display: flex;
     position: absolute;
     z-index: 5;
@@ -528,41 +564,41 @@ DEMOGRAPHICS PAGE
     gap: 1rem;
 }
 
-.change__button{
+.change__button {
     font-size: 1rem;
     height: auto;
 }
 
-.button__reset{
+.button__reset {
     border: solid var(--theme-highlight-grey) 1px;
     background-color: black;
 }
 
-.demographics__wrapper{
+.demographics__wrapper {
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: space-between;
     align-items: flex-start;
-    gap:1rem;
+    gap: 1rem;
 }
 
 .demographics__summary,
 .demographics__details,
-.demographics__breakdown{
+.demographics__breakdown {
     background-color: var(--theme-highlight-grey);
     border-top: 1px var(--theme-black) solid;
 }
 
-.demographics__summaries{
+.demographics__summaries {
     height: 100%;
-    width:15%;
+    width: 15%;
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 1rem;
 }
 
-.demographics__summary{
+.demographics__summary {
     width: 100%;
     height: max(13vh, 5rem);
     display: flex;
@@ -572,60 +608,61 @@ DEMOGRAPHICS PAGE
     cursor: pointer;
 }
 
-.demographics__summary--text{
+.demographics__summary--text {
     text-transform: uppercase;
-    font-weight:600;
+    font-weight: 600;
 }
 
-.demographics__details{
-    height:70%;
-    width:60%;
+.demographics__details {
+    height: 70%;
+    width: 60%;
     padding: 1rem;
 }
 
-.demographics__details--title{
+.demographics__details--title {
     margin: 0;
     padding: 0;
     font-size: 2.25rem;
-    font-weight:400;
+    font-weight: 400;
     text-transform: capitalize;
 }
-.details__span{
+
+.details__span {
     text-transform: none;
     font-size: inherit;
 }
 
-.demographics__details--percentage{
-    height:85%;
+.demographics__details--percentage {
+    height: 85%;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.percentage__wrapper{
-    width:max(60%, 320px);
-    height:100%;
+.percentage__wrapper {
+    width: max(60%, 320px);
+    height: 100%;
     padding: 0;
     margin: 0;
-    position:relative;
+    position: relative;
 }
 
-.donut__chart{
+.donut__chart {
     z-index: 1;
 }
 
-.percentage__para{
+.percentage__para {
     z-index: 2;
     font-size: 3rem;
     font-weight: 600;
 }
 
-.demographics__breakdown{
+.demographics__breakdown {
     height: 70%;
     width: 25%;
 }
 
-.demographics__breakdown--item{
+.demographics__breakdown--item {
     display: flex;
     justify-content: space-between;
     padding: 0.6rem 1rem;
@@ -633,11 +670,11 @@ DEMOGRAPHICS PAGE
     background-color: var(--theme-highlight-grey);
 }
 
-.breakdown__item--para{
+.breakdown__item--para {
     text-transform: uppercase;
 }
 
-.radio{
+.radio {
     padding-right: 1rem;
 }
 
@@ -645,7 +682,7 @@ DEMOGRAPHICS PAGE
 WEBCAM PAGE
 */
 
-.webcam__container{
+.webcam__container {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -654,17 +691,17 @@ WEBCAM PAGE
     left: 0;
 }
 
-.noContainer{
+.noContainer {
     margin: 2.5rem;
 }
 
-.webcam{
-    height:max(100%, 70vw);
+.webcam {
+    height: max(100%, 70vw);
     z-index: 1;
 
 }
 
-.webcam__message{
+.webcam__message {
     color: #FCFCFC;
     display: flex;
     flex-direction: column;
@@ -676,11 +713,11 @@ WEBCAM PAGE
     left: 50%;
     transform: translateX(-50%);
     line-height: 2rem;
-    z-index:2;
+    z-index: 2;
     width: 80%;
 }
 
-.webcam__message>ul{
+.webcam__message>ul {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -688,11 +725,11 @@ WEBCAM PAGE
     text-transform: uppercase;
 }
 
-.webcam__message>ul>li>img{
+.webcam__message>ul>li>img {
     padding: 0 1rem;
 }
 
-.webcam__cap{
+.webcam__cap {
     display: flex;
     color: #FCFCFC;
     text-transform: uppercase;
@@ -704,18 +741,18 @@ WEBCAM PAGE
     right: 2rem;
     background-color: transparent;
     cursor: pointer;
-    z-index:2;
+    z-index: 2;
 }
 
-.webcam__icon{
+.webcam__icon {
     padding-left: 1rem;
 }
 
-.loading__message{
+.loading__message {
     bottom: 10%;
 }
 
-.camera__loading{
+.camera__loading {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -723,26 +760,26 @@ WEBCAM PAGE
     align-items: center;
 }
 
-.camera__loading>img{
+.camera__loading>img {
     width: 80%;
     margin-top: 10%;
 }
 
-.success__message{
+.success__message {
     text-transform: uppercase;
     color: #FCFCFC;
     z-index: 2;
     position: absolute;
-    top:30%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    text-shadow: 
-                -1px -1px 5px var(--theme-black),  
-                 1px -1px 5px var(--theme-black),
-                -1px  1px 5px var(--theme-black),
-                 1px  1px 5px var(--theme-black);
+    text-shadow:
+        -1px -1px 5px var(--theme-black),
+        1px -1px 5px var(--theme-black),
+        -1px 1px 5px var(--theme-black),
+        1px 1px 5px var(--theme-black);
 }
 
-.webcam__uploading{
+.webcam__uploading {
     position: absolute;
 }
