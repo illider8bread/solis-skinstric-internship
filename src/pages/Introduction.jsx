@@ -8,19 +8,7 @@ import {gsap} from "gsap";
 function Introduction({ createUser, loading, created }) {
 
 
-    function processingAnimation() {
-        let tl = gsap.timeline({repeat:-1});
-        tl.to("#dot1", { y: -16, duration: 0.25 }) 
-            .to("#dot1", { y: 16, duration: 0.25 }) 
-            .to("#dot2", { y: -16, duration: 0.25 }) 
-            .to("#dot2", { y: 16, duration: 0.25 }) 
-            .to("#dot3", { y: -16, duration: 0.25 }) 
-            .to("#dot3", { y: 16, duration: 0.25 });
-    }
 
-    // useEffect(() => {
-    //     processingAnimation()
-    // }, [])
 
     function renderContent() {
         if (sessionStorage.getItem("usercreated") === true || created) {
@@ -33,10 +21,7 @@ function Introduction({ createUser, loading, created }) {
         } else if (loading) {
             return (
                 <div className="position__centered processing">
-                    Processing Submission <br />
-                    <span id="dot1" className="processing__dot">.</span>
-                    <span id="dot2" className="processing__dot">.</span>
-                    <span id="dot3" className="processing__dot">.</span>
+                    Processing Submission . . .
                 </div>
             )
         } else {
@@ -48,17 +33,11 @@ function Introduction({ createUser, loading, created }) {
 
     return (
         <>
-            <Background />
+            <Background width="42.5rem" marginTop="2rem"/>
             <div className="container">
                 <div className="row">
                     <Analysis />
-                    <div className="position__centered processing">
-                        Processing Submission <br />
-                        <span id="dot1" className="processing__dot">.</span>
-                        <span id="dot2" className="processing__dot">.</span>
-                        <span id="dot3" className="processing__dot">.</span>
-                    </div>
-                    {/* {renderContent()} */}
+                    {renderContent()}
                     <NavigationButton text="back" navTo="/" />
                     {created ? <NavigationButton text="proceed" navTo="/image" /> : <></>}
                 </div>

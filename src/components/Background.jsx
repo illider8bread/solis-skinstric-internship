@@ -2,8 +2,7 @@ import { useEffect } from "react"
 import background from "../assets/background-square.png"
 import gsap from "gsap";
 
-
-function Background() {
+function Background({width, marginTop}) {
 
     function backgroundAnim() {
         let tl = gsap.timeline()
@@ -50,10 +49,10 @@ function Background() {
     }, [])
 
     return (
-        <div id="background">
-            <img src={background} id="square1" className="background__square" />
-            <img src={background} id="square2" className="background__square" />
-            <img src={background} id="square3" className="background__square" />
+        <div id="background" style={{marginTop: marginTop}}>
+            <img src={background} id="square1" className="background__square" style={{width: width}}/>
+            <img src={background} id="square2" className="background__square" style={{width: width}}/>
+            <img src={background} id="square3" className="background__square" style={{width: width}}/>
         </div>
     )
 }

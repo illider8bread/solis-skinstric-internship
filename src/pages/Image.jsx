@@ -7,6 +7,7 @@ import gallery from "../assets/galleryicon.png";
 import camera from "../assets/cameraicon.png";
 import Popup from "../components/Popup";
 import Uploading from "../components/ImagesUploading";
+import Background from "../components/Background";
 
 
 function Image({ createPrediction, loading, created, setCreated }) {
@@ -40,6 +41,8 @@ function Image({ createPrediction, loading, created, setCreated }) {
 
 
     return (
+        <>
+        {loading ? <Background width="42.5rem" marginTop="2rem" /> : <></> }
         <div className="container">
             <div className="row">
                 <Analysis />
@@ -82,6 +85,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
                 <NavigationButton text="back" navTo="/introduction" />
             </div>
         </div>
+        </>
     )
 }
 export default Image

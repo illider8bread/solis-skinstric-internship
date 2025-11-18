@@ -60,6 +60,7 @@ button {
     height: calc(100% - 4rem);
     position: relative;
     margin: 2rem;
+    background-color: transparent;
 }
 
 .black__btn {
@@ -149,17 +150,17 @@ BACKGROUND SQUARES
     height: 100%;
     width: 100%;
     z-index: 1;
+    text-align: center;
 }
 
 .background__square {
     position: absolute;
-    height: 42.5rem;
-    margin-top: 9rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto;
+    top:-50%;
+    bottom: -50%;
     left: -50%;
     right: -50%;
-    z-index: 1;
+    z-index: 0;
 }
 
 /* 
@@ -175,7 +176,7 @@ LANDING PAGE
 }
 
 .right {
-    transform: scaleY(-1);
+    transform: scaleX(-1);
 }
 
 
@@ -357,7 +358,7 @@ UPLOAD IMAGE FORM PAGE
 .image__input--background {
     z-index: 1;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -424,7 +425,7 @@ UPLOAD IMAGE FORM PAGE
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: #FCFCFC;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -487,7 +488,7 @@ RESULTS PAGE
 */
 
 .results__background {
-    width: min(80vh, 90vw);
+    width: min(65vh, 72vw);
     height: auto
 }
 
