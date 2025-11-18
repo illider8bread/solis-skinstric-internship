@@ -197,6 +197,7 @@ LANDING PAGE
     display: flex;
     align-items: center;
     position: relative;
+    overflow: visible;
 }
 
 #nav__left {
