@@ -18,6 +18,7 @@
     --theme-grey: rgba(26, 27, 28, 0.70);
     --theme-highlight-grey: #F3F3F4;
     color: var(--theme-black);
+    overflow: hidden;
 }
 
 input {
@@ -231,7 +232,7 @@ LANDING PAGE
     cursor: pointer;
     position: absolute;
     background-color: transparent;
-    z-index: 2;
+    z-index: 5;
 }
 
 .button__icon {
@@ -429,6 +430,7 @@ UPLOAD IMAGE FORM PAGE
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .loading__para {
@@ -691,6 +693,15 @@ DEMOGRAPHICS PAGE
 WEBCAM PAGE
 */
 
+.image__preview{
+    position: absolute; /* or relative, depending on your layout */
+    top: 0; /* adjust as needed */
+    left: 0; /* adjust as needed */
+    z-index: 4; /* ensure it's above other elements */
+    width: auto; /* or any size you want */
+    height: 100%; /* maintain aspect ratio */
+}
+
 .webcam__container {
     width: 100vw;
     height: 100vh;
@@ -698,6 +709,7 @@ WEBCAM PAGE
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 .noContainer {
@@ -707,7 +719,6 @@ WEBCAM PAGE
 .webcam {
     height: max(100%, 70vw);
     z-index: 1;
-
 }
 
 .webcam__message {
@@ -722,7 +733,7 @@ WEBCAM PAGE
     left: 50%;
     transform: translateX(-50%);
     line-height: 2rem;
-    z-index: 2;
+    z-index: 5;
     width: 80%;
 }
 
@@ -777,7 +788,7 @@ WEBCAM PAGE
 .success__message {
     text-transform: uppercase;
     color: #FCFCFC;
-    z-index: 2;
+    z-index: 5;
     position: absolute;
     top: 30%;
     left: 50%;
