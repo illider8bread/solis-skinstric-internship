@@ -54,7 +54,7 @@ const DonutChart = ({ percentage }) => {
         };
     }, [percentage]); // Re-run effect when percentage changes
 
-    return <canvas ref={chartRef} className='donut__chart'
+    return <canvas ref={chartRef} className='donut__chart position__centered'
     style={{ maxWidth: '400px', maxHeight: '400px', width: '100%', height: '100%' }} />;
 };
 

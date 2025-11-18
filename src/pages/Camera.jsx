@@ -2,95 +2,95 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Webcam from "react-webcam";
 import CameraIcon from '../assets/photo-icon.png';
-import radio from '../assets/radio-btn.png'
-import btn from '../assets/buttin-icon-shrunk.png';
-import WebLoad from '../assets/webcamload.png'
+
+import Message from "../components/CameraMessage";
+import NavigationButton from "../components/NavigationButton";
+import Uploading from "../components/ImagesUploading";
+import CameraLoading from "../components/CameraLoading";
+
+function Camera({ createPrediction, loading, created }) {
+    const navigate = useNavigate();
+    const [image, setImage] = useState("");
+    const [proceed, setProceed] = useState(false);
+    const [cameraLoading, setCameraLoading] = useState(true)
+    const [loadingDelay, setLoadingDelay] = useState(false)
 
 
-const videoConstraints = {
-  width: 1280,
-  height: 720,
-  facingMode: "user"
-};
+    const webcamRef = React.useRef(null);
+    const videoConstraints = {
+        width: 1280,
+        height: 720,
+        facingMode: "user"
+    };
 
-const Camera = (uploadImage) => {
-  const navigate = useNavigate();
-  const webcamRef = React.useRef(null);
-  const [loading, setLoading] = useState(true);
-  const [image, setImage] = useState()
-  const [proceed, setProceed] = useState(false);
+    const isCameraOn = () => {
+        setCameraLoading(false);
+    }
 
-  const capture = React.useCallback(
-    () => {
-      const imageSrc = webcamRef.current.getScreenshot();
-      setImage(imageSrc);
-      setProceed(true);
-    },
-    [webcamRef]
-  );
+    const capture = React.useCallback(
+        () => {
+            const imageSrc = webcamRef.current.getScreenshot();
+            setImage(imageSrc);
+            setProceed(true);
+        },
+        [webcamRef]
+    );
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4000);
+    useEffect(() => {
+        if (loading) {
+            setLoadingDelay(true)
+        }
+    }, [loading])
 
-    return () => clearTimeout(timer);
-  }, []);
+    useEffect(() => {
+        if (loadingDelay) {
+            setTimeout(() => {
+                setLoadingDelay(false);
+            }, 1000);
+        }
+    }, [loadingDelay])
 
-  return (
-    <div className="webcam__container">
-      {loading ? (
-        <div className="loading">
-          <img src={WebLoad} className="loading--img" />
-          <div className="webcam__message inverted">
-            To get better results make sure to have<br />
-            <ul>
-              <li><img src={radio} className='inverted' />Neutral Expression</li>
-              <li><img src={radio} className='inverted' />Frontal Pose</li>
-              <li><img src={radio} className='inverted' />Adequate lighting</li>
-            </ul>
-          </div>
+    useEffect(() => {
+        if (created) {
+            navigate("/results")
+        }
+    }, [created])
+
+    useEffect(() => {
+        console.log(image)
+    }, [image])
+
+    return (
+        <div className="webcam__container">
+            {loadingDelay && <Uploading addClass="webcam__uploading" />}
+            {cameraLoading ? <CameraLoading /> : (
+                <>
+                    <Message />
+                    <NavigationButton text="back" navTo="/image" classes="inverted noContainer" />
+                    {proceed ? (
+                        <div className="success__message">Great Shot!</div>
+                    ) : (
+                        <button className="webcam__cap" onClick={capture}>
+                            Take Picture
+                            <img src={CameraIcon} className="webcam__icon" alt="Camera Icon" />
+                        </button>
+                    )}
+                </>
+            )}
+            {image && <img src={image} className="image__preview" alt="Captured" />}
+            <Webcam
+                className="webcam position__centered"
+                audio={false}
+                ref={webcamRef}
+                screenshotFormat="image/jpeg"
+                onUserMedia={isCameraOn}
+                videoConstraints={videoConstraints}
+            />
+            {proceed && (
+                <NavigationButton text="proceed" navTo="" onClick={() => createPrediction(image)} classes="inverted noContainer" />
+            )}
         </div>
-      ) : (
-        <>
-          <Webcam
-            className="webcam"
-            audio={false}
-            height={720}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            width={1280}
-            videoConstraints={videoConstraints}
-          />
-          <button className="webcam__cap" onClick={capture} >Take Picture
-            <img src={CameraIcon} className="webcam__icon" />
-          </button>
-          <div className="webcam__message">
-            To get better results make sure to have<br />
-            <ul>
-              <li><img src={radio} className='inverted' />Neutral Expression</li>
-              <li><img src={radio} className='inverted' />Frontal Pose</li>
-              <li><img src={radio} className='inverted' />Adequate lighting</li>
-            </ul>
-          </div>
-          <div className="back__btn inverted" onClick={() => navigate("/")}>
-            <img src={btn} alt="" className="arrow " /> Back
-          </div>
-        </>
-      )}
-      {!proceed ? null : (
-        <>
-        <div className="camera__shot" >
-          Great Shot!
-        </div>
-        <div className="proceed__btn inverted" onClick={() => {navigate("/results"); localStorage.setItem("image", image)}} >
-          Proceed
-          <img src={btn} alt="" className="arrow right" />
-        </div>
-        </>
-      )}
-    </div>
-  );
-};
+    );
 
-export default Camera;
+}
+export default Camera

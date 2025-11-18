@@ -1,89 +1,126 @@
-import { useNavigate } from "react-router";
-import btn from '../assets/buttin-icon-shrunk.png';
-import { useEffect, useState } from "react";
-import PredictedDemos from "../components/PredictedDemos";
-import Confidence from "../components/Confidence";
-import Percentage from "../components/Percentage";
+import React, { useEffect, useState } from "react";
+import Analysis from "../components/Analysis";
+import NavigationButton from "../components/NavigationButton";
+import Summaries from "../components/DemographicsSummaries";
+import Breakdown from "../components/DemographicsBreakdown";
+import Details from "../components/DemographicsDetails";
 
+function Demographics({ createPrediction, predictions }) {
+    const [race, setRace] = useState({});
+    const [age, setAge] = useState({});
+    const [sex, setSex] = useState({});
+    const [selected, setSelected] = useState('race');
+    const [mostConfidence, setMostConfidence] = useState([])
 
-function Demographics({ demographics }) {
-    const navigate = useNavigate();
-    const [predictions, setPredictions] = useState({})
-    const [sortedResults, setSortedResults] = useState({})
-    const loaded = Object.keys(predictions).length > 0;
-    const [selected, setSelected] = useState("race");
-
-    function changeSelection(string) {
-        setSelected(string)
+    function changeSelected(input) {
+        setSelected(input)
     }
 
-    function findPredictions(obj) {
-        const results = {};
-        for (const [category, values] of Object.entries(obj)) {
-            const entries = Object.entries(values);
-            const [maxKey, maxValue] = entries.reduce((max, current) => {
-                return current[1] > max[1] ? current : max;
+    function formatPredictions(dataset) {
+        return Object.entries(dataset)
+            .sort(([, valueA], [, valueB]) => valueB - valueA)
+            .map(([key, value]) => {
+                return {
+                    key: key,
+                    value: value
+                };
             });
-            results[category] = { key: maxKey, value: (maxValue * 100).toFixed(2) };
-        }
-        setPredictions(results);
-        return results;
     }
 
-    function fixPredictions(demographic, key, value){
-        setPredictions(prevPredictions => ({
-            ...prevPredictions, // Spread the previous predictions
-            [demographic]: { key: key, value: value } // Update the specific category
-    }))}
+    function sortByRange(arr) {
+        return arr.sort((a, b) => {
+            const getRangeStart = (key) => {
+                if (key === "70+") return Infinity;
+                const rangeParts = key.split('-');
+                return parseInt(rangeParts[0], 10);
+            };
 
-    function sortByValues(obj) {
-        const sorted = {};
-        for (const [key, childObj] of Object.entries(obj)) {
-            const entries = Object.entries(childObj).map(([k, v]) => [String(k), parseFloat(v)]);
-            entries.sort((a, b) => b[1] - a[1]);
-            const formattedEntries = entries.map(([k, v]) => [k, (v * 100).toFixed(2)]);
-            sorted[key] = Object.fromEntries(formattedEntries);
-        }
-        setSortedResults(sorted);
+            return getRangeStart(a.key) - getRangeStart(b.key);
+        });
     }
+
+    const findMostConfidence = (arr) => {
+        return arr.reduce((maxObj, currentObj) => {
+            return (currentObj.value > maxObj.value) ? currentObj : maxObj;
+        });
+    };
+
+    function changeMostConfidence(newObject) {
+        let targetIndex;
+        if (selected === "race") {
+            targetIndex = 0;
+        } else if (selected === "age") {
+            targetIndex = 1;
+        } else if (selected === "sex") {
+            targetIndex = 2;
+        }
+
+        const newArray = [...mostConfidence];
+        newArray[targetIndex] = newObject;
+        setMostConfidence(newArray)
+    }
+
 
     useEffect(() => {
-        console.log(demographics);
-        findPredictions(demographics);
-        sortByValues(demographics);
-    }, [demographics])
+        if (Object.keys(predictions).length = 0) {
+            createPrediction(localStorage.getItem("image"))
+        }
+
+        if (Object.keys(predictions).length > 0) {
+            const newRace = formatPredictions(predictions.race);
+            const newAge = sortByRange(formatPredictions(predictions.age));
+            const newSex = formatPredictions(predictions.gender);
+
+            setRace(newRace);
+            setAge(newAge);
+            setSex(newSex);
+            setMostConfidence([
+                findMostConfidence(newRace),
+                findMostConfidence(newAge),
+                findMostConfidence(newSex)
+            ]);
+        }
+    }, [predictions]);
 
     return (
-        <div className="demographicpage">
-            <h1 className="demo__title">Demographics</h1>
-            <h4 className="demo__subtitle">Predicted race & age</h4>
-            <div className="demographics">
-                <PredictedDemos predictions={predictions} changeSelection={changeSelection} selected={selected} />
-                {loaded ? 
-                <>
-                <div className="demographic__info">
-                        <Percentage selected={selected} results={predictions} />
+        <div className="container">
+            <div className="row">
+                <Analysis />
+                <div className="demographics__header">
+                    <h1 className="demographics__title">
+                        Demographics
+                    </h1>
+                    <p className="demographics__subtitle">
+                        Predicted Race & Age
+                    </p>
                 </div>
-                <div className="demographic__confidence">
-                        <Confidence selected={selected} results={sortedResults} fixPredictions={fixPredictions} />
+                <div className="demographics__wrapper">
+                    <Summaries mostConfident={mostConfidence} selected={selected} setSelected={changeSelected} />
+                    <Details mostConfident={mostConfidence} selected={selected} />
+                    <Breakdown race={race} age={age} sex={sex} selected={selected} confidence={findMostConfidence} changeMostConfident={changeMostConfidence} />
                 </div>
-                </>
-                :
-                <></>
-                }
-                
+                <NavigationButton text="back" navTo="/results" />
+                <div className="change__buttons--wrapper">
+                    <button
+                        className=" change__button button__reset black__btn inverted"
+                        onClick={() => {
+                            setMostConfidence([
+                                findMostConfidence(race),
+                                findMostConfidence(age),
+                                findMostConfidence(sex)
+                            ])
+                        }} >
+                        Reset
+                    </button>
+                    <button
+                        className=" change__button black__btn"
+                        onClick={() => { }}>
+                        Confirm
+                    </button>
+                </div>
             </div>
-            <p className="disclaimer">
-                if A.I. estimate is wrong, please select the correct one.
-            </p>
-            <div className="back__btn transparent" onClick={() => navigate('/results')}>
-                <img src={btn} alt="" className="arrow" /> Back
-            </div>
-            {/* <div className="proceed__btn">
-                Something somethin <img src={btn} alt="" className="arrow right" />
-            </div> */}
         </div>
-    );
+    )
 }
 
-export default Demographics;
+export default Demographics
