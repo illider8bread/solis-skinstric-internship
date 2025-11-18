@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Webcam from "react-webcam";
 import CameraIcon from '../assets/photo-icon.png';
-import btn from '../assets/buttin-icon-shrunk.png';
-import WebLoad from '../assets/webcamload.png'
+
 import Message from "../components/CameraMessage";
 import NavigationButton from "../components/NavigationButton";
 import Uploading from "../components/ImagesUploading";
@@ -52,25 +51,33 @@ function Camera({ createPrediction, loading, created }) {
     }, [loadingDelay])
 
     useEffect(() => {
-        if (created){
+        if (created) {
             navigate("/results")
         }
     }, [created])
 
+    useEffect(() => {
+        console.log(image)
+    }, [image])
+
     return (
         <div className="webcam__container">
-            {loadingDelay ? <Uploading addClass="webcam__uploading" /> : <></>}
-            {cameraLoading ? <CameraLoading /> : (<>
-                <Message />
-                <NavigationButton text="back" navTo="/image" classes="inverted noContainer" />
-                {proceed ? <div className="success__message">
-                    Great Shot!
-                </div> :
-                    (<button className="webcam__cap" onClick={capture} >Take Picture
-                        <img src={CameraIcon} className="webcam__icon" />
-                    </button>)}
-            </>)}
-
+            {loadingDelay && <Uploading addClass="webcam__uploading" />}
+            {cameraLoading ? <CameraLoading /> : (
+                <>
+                    <Message />
+                    <NavigationButton text="back" navTo="/image" classes="inverted noContainer" />
+                    {proceed ? (
+                        <div className="success__message">Great Shot!</div>
+                    ) : (
+                        <button className="webcam__cap" onClick={capture}>
+                            Take Picture
+                            <img src={CameraIcon} className="webcam__icon" alt="Camera Icon" />
+                        </button>
+                    )}
+                </>
+            )}
+            {image && <img src={image} className="image__preview" alt="Captured" />}
             <Webcam
                 className="webcam position__centered"
                 audio={false}
@@ -79,9 +86,11 @@ function Camera({ createPrediction, loading, created }) {
                 onUserMedia={isCameraOn}
                 videoConstraints={videoConstraints}
             />
-
-            {proceed ? <NavigationButton text="proceed" navTo="" onClick={() => createPrediction(image)} classes="inverted noContainer" /> : <></>}
+            {proceed && (
+                <NavigationButton text="proceed" navTo="" onClick={() => createPrediction(image)} classes="inverted noContainer" />
+            )}
         </div>
-    )
+    );
+
 }
 export default Camera

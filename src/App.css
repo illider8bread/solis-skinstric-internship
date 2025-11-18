@@ -18,6 +18,7 @@
     --theme-grey: rgba(26, 27, 28, 0.70);
     --theme-highlight-grey: #F3F3F4;
     color: var(--theme-black);
+    overflow: hidden;
 }
 
 input {
@@ -25,7 +26,8 @@ input {
     background-color: inherit;
 }
 
-li, ul{
+li,
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -33,7 +35,12 @@ li, ul{
 }
 
 
-p, h1, h2, h3, h4, h5 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
     margin: 0;
 }
 
@@ -43,16 +50,18 @@ button {
 }
 
 .container {
+    z-index: 2;
     width: 100%;
     height: calc(97vh - 4rem);
-    padding: 2rem;
     overflow: hidden;
 }
 
 .row {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
     position: relative;
+    margin: 2rem;
+    background-color: transparent;
 }
 
 .black__btn {
@@ -124,10 +133,35 @@ TO START ANALYSIS
     font-weight: 600;
 }
 
-.analysis__subtitle{
+.analysis__subtitle {
     font-weight: 400;
     padding: 1rem 0;
     font-size: 0.875rem;
+}
+
+/* 
+BACKGROUND SQUARES
+*/
+
+#background {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+}
+
+.background__square {
+    position: absolute;
+    margin:auto;
+    top:-50%;
+    bottom: -50%;
+    left: -50%;
+    right: -50%;
+    z-index: 0;
 }
 
 /* 
@@ -143,7 +177,7 @@ LANDING PAGE
 }
 
 .right {
-    transform: scale(-1);
+    transform: scaleX(-1);
 }
 
 
@@ -165,6 +199,14 @@ LANDING PAGE
     position: relative;
 }
 
+#nav__left {
+    left: 2rem;
+}
+
+#nav__right {
+    right: 2rem;
+}
+
 .button__left {
     justify-content: flex-start;
 }
@@ -175,6 +217,7 @@ LANDING PAGE
 
 .button__frame {
     width: 100%;
+    position: absolute;
 }
 
 .navigation__button {
@@ -189,7 +232,7 @@ LANDING PAGE
     cursor: pointer;
     position: absolute;
     background-color: transparent;
-    z-index:2;
+    z-index: 5;
 }
 
 .button__icon {
@@ -205,8 +248,17 @@ LANDING PAGE
     width: 30vw;
     max-width: 20rem;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+#triangle1,
+#triangle2,
+#triangle3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(-1);
 }
 
 .position__centered {
@@ -219,11 +271,6 @@ LANDING PAGE
 /* 
 NEW USER FORM
 */
-
-.form__background--img {
-    z-index: 5;
-    height: 100%;
-}
 
 .form__wrapper {
     max-width: 41rem;
@@ -270,6 +317,13 @@ form {
     text-align: center;
 }
 
+.processing__dot{
+    font-size:5rem;
+    line-height: 1.5rem;
+    color: var(--theme-grey);
+    position: relative;
+}
+
 .submitted {
     font-size: 2rem;
     text-align: center;
@@ -305,7 +359,7 @@ UPLOAD IMAGE FORM PAGE
 .image__input--background {
     z-index: 1;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -372,10 +426,11 @@ UPLOAD IMAGE FORM PAGE
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: #FCFCFC;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .loading__para {
@@ -435,7 +490,7 @@ RESULTS PAGE
 */
 
 .results__background {
-    width: min(80vh, 90vw);
+    width: min(65vh, 72vw);
     height: auto
 }
 
@@ -453,26 +508,26 @@ RESULTS PAGE
     transform: rotate(45deg);
     display: flex;
     flex-wrap: wrap;
-    gap:0.5rem;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: space-between;
 }
 
-.results__button{
+.results__button {
     background-color: var(--theme-highlight-grey);
-    width:48%;
-    height:48%;
+    width: 48%;
+    height: 48%;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.results__button:hover{
+.results__button:hover {
     background-color: #E1E1E2;
 }
 
-.results__button--text{
+.results__button--text {
     text-transform: uppercase;
     transform: rotate(-45deg);
     width: 80%;
@@ -485,33 +540,33 @@ RESULTS PAGE
 /* 
 DEMOGRAPHICS PAGE
 */
-.inverted{
+.inverted {
     filter: invert(1);
 }
 
-#white{
+#white {
     filter: invert(1);
 }
 
-.demographics__header{
+.demographics__header {
     padding: 1rem 0;
     margin-bottom: 3rem;
 }
 
-.demographics__title{
-    font-size:3rem;
+.demographics__title {
+    font-size: 3rem;
     text-transform: uppercase;
     padding: 0;
-    margin:0;
+    margin: 0;
     letter-spacing: -2%;
 }
 
-.demographics__subtitle{
+.demographics__subtitle {
     text-transform: uppercase;
-    font-size:0.875rem;
+    font-size: 0.875rem;
 }
 
-.change__buttons--wrapper{
+.change__buttons--wrapper {
     display: flex;
     position: absolute;
     z-index: 5;
@@ -520,41 +575,41 @@ DEMOGRAPHICS PAGE
     gap: 1rem;
 }
 
-.change__button{
+.change__button {
     font-size: 1rem;
     height: auto;
 }
 
-.button__reset{
+.button__reset {
     border: solid var(--theme-highlight-grey) 1px;
     background-color: black;
 }
 
-.demographics__wrapper{
+.demographics__wrapper {
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: space-between;
     align-items: flex-start;
-    gap:1rem;
+    gap: 1rem;
 }
 
 .demographics__summary,
 .demographics__details,
-.demographics__breakdown{
+.demographics__breakdown {
     background-color: var(--theme-highlight-grey);
     border-top: 1px var(--theme-black) solid;
 }
 
-.demographics__summaries{
+.demographics__summaries {
     height: 100%;
-    width:15%;
+    width: 15%;
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 1rem;
 }
 
-.demographics__summary{
+.demographics__summary {
     width: 100%;
     height: max(13vh, 5rem);
     display: flex;
@@ -564,60 +619,61 @@ DEMOGRAPHICS PAGE
     cursor: pointer;
 }
 
-.demographics__summary--text{
+.demographics__summary--text {
     text-transform: uppercase;
-    font-weight:600;
+    font-weight: 600;
 }
 
-.demographics__details{
-    height:70%;
-    width:60%;
+.demographics__details {
+    height: 70%;
+    width: 60%;
     padding: 1rem;
 }
 
-.demographics__details--title{
+.demographics__details--title {
     margin: 0;
     padding: 0;
     font-size: 2.25rem;
-    font-weight:400;
+    font-weight: 400;
     text-transform: capitalize;
 }
-.details__span{
+
+.details__span {
     text-transform: none;
     font-size: inherit;
 }
 
-.demographics__details--percentage{
-    height:85%;
+.demographics__details--percentage {
+    height: 85%;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.percentage__wrapper{
-    width:max(60%, 320px);
-    height:100%;
+.percentage__wrapper {
+    width: max(60%, 320px);
+    height: 100%;
     padding: 0;
     margin: 0;
-    position:relative;
+    position: relative;
 }
 
-.donut__chart{
+.donut__chart {
     z-index: 1;
 }
 
-.percentage__para{
+.percentage__para {
     z-index: 2;
     font-size: 3rem;
     font-weight: 600;
 }
 
-.demographics__breakdown{
+.demographics__breakdown {
     height: 70%;
     width: 25%;
 }
 
-.demographics__breakdown--item{
+.demographics__breakdown--item {
     display: flex;
     justify-content: space-between;
     padding: 0.6rem 1rem;
@@ -625,11 +681,11 @@ DEMOGRAPHICS PAGE
     background-color: var(--theme-highlight-grey);
 }
 
-.breakdown__item--para{
+.breakdown__item--para {
     text-transform: uppercase;
 }
 
-.radio{
+.radio {
     padding-right: 1rem;
 }
 
@@ -637,26 +693,35 @@ DEMOGRAPHICS PAGE
 WEBCAM PAGE
 */
 
-.webcam__container{
+.image__preview{
+    position: absolute; /* or relative, depending on your layout */
+    top: 0; /* adjust as needed */
+    left: 0; /* adjust as needed */
+    z-index: 4; /* ensure it's above other elements */
+    width: auto; /* or any size you want */
+    height: 100%; /* maintain aspect ratio */
+}
+
+.webcam__container {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
-.noContainer{
+.noContainer {
     margin: 2.5rem;
 }
 
-.webcam{
-    height:max(100%, 70vw);
+.webcam {
+    height: max(100%, 70vw);
     z-index: 1;
-
 }
 
-.webcam__message{
+.webcam__message {
     color: #FCFCFC;
     display: flex;
     flex-direction: column;
@@ -668,11 +733,11 @@ WEBCAM PAGE
     left: 50%;
     transform: translateX(-50%);
     line-height: 2rem;
-    z-index:2;
+    z-index: 5;
     width: 80%;
 }
 
-.webcam__message>ul{
+.webcam__message>ul {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -680,11 +745,11 @@ WEBCAM PAGE
     text-transform: uppercase;
 }
 
-.webcam__message>ul>li>img{
+.webcam__message>ul>li>img {
     padding: 0 1rem;
 }
 
-.webcam__cap{
+.webcam__cap {
     display: flex;
     color: #FCFCFC;
     text-transform: uppercase;
@@ -696,18 +761,18 @@ WEBCAM PAGE
     right: 2rem;
     background-color: transparent;
     cursor: pointer;
-    z-index:2;
+    z-index: 2;
 }
 
-.webcam__icon{
+.webcam__icon {
     padding-left: 1rem;
 }
 
-.loading__message{
+.loading__message {
     bottom: 10%;
 }
 
-.camera__loading{
+.camera__loading {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -715,26 +780,26 @@ WEBCAM PAGE
     align-items: center;
 }
 
-.camera__loading>img{
+.camera__loading>img {
     width: 80%;
     margin-top: 10%;
 }
 
-.success__message{
+.success__message {
     text-transform: uppercase;
     color: #FCFCFC;
-    z-index: 2;
+    z-index: 5;
     position: absolute;
-    top:30%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    text-shadow: 
-                -1px -1px 5px var(--theme-black),  
-                 1px -1px 5px var(--theme-black),
-                -1px  1px 5px var(--theme-black),
-                 1px  1px 5px var(--theme-black);
+    text-shadow:
+        -1px -1px 5px var(--theme-black),
+        1px -1px 5px var(--theme-black),
+        -1px 1px 5px var(--theme-black),
+        1px 1px 5px var(--theme-black);
 }
 
-.webcam__uploading{
+.webcam__uploading {
     position: absolute;
 }
