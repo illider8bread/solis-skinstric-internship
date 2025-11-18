@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Popup({ text, onClickOne, buttonTextOne, onClickTwo, buttonTextTwo, position }) {
 
     return (

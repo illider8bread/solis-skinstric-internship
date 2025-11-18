@@ -1,9 +1,7 @@
 import Analysis from "../components/Analysis";
 import Form from "../components/Form";
 import NavigationButton from "../components/NavigationButton";
-import { useEffect } from "react";
 import Background from "../components/Background";
-import {gsap} from "gsap";
 
 function Introduction({ createUser, loading, created }) {
 

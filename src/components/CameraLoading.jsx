@@ -1,4 +1,3 @@
-import loadingbackground from "../assets/preparing.png";
 import cameraicon from "../assets/cameraicon.png"
 import Message from "./CameraMessage";
 import Background from "./Background";

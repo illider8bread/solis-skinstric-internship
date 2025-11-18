@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Analysis from "../components/Analysis";
 import NavigationButton from "../components/NavigationButton";
 import Summaries from "../components/DemographicsSummaries";

@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useNavigate } from "react-router";
 import { gsap } from "gsap";
 import btn from '../assets/buttin-icon-shrunk.png';
 import triangle from '../assets/Rectangle-bkg.png';
-import emphasisTriangle from "../assets/Rectangle-bkg-emphasis.png"
 
 function Landing() {
     const navigate = useNavigate();

@@ -3,7 +3,7 @@ import Header from "./components/Header.jsx"
 import axios from 'axios'
 import Landing from './pages/Landing.jsx';
 import Introduction from './pages/Introduction.jsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from './pages/Image.jsx';
 import Results from './pages/Results.jsx';
 import { Routes, Route } from 'react-router';
