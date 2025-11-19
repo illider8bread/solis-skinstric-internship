@@ -4,6 +4,7 @@ import NavigationButton from "../components/NavigationButton";
 import Summaries from "../components/DemographicsSummaries";
 import Breakdown from "../components/DemographicsBreakdown";
 import Details from "../components/DemographicsDetails";
+import { useLocation } from 'react-router-dom';
 
 function Demographics({ createPrediction, predictions }) {
     const [race, setRace] = useState({});
@@ -11,6 +12,9 @@ function Demographics({ createPrediction, predictions }) {
     const [sex, setSex] = useState({});
     const [selected, setSelected] = useState('race');
     const [mostConfidence, setMostConfidence] = useState([])
+    const location = useLocation();
+
+
 
     function changeSelected(input) {
         setSelected(input)
@@ -81,6 +85,12 @@ function Demographics({ createPrediction, predictions }) {
             ]);
         }
     }, [predictions]);
+
+    useEffect(() => {
+        if (location.pathname === '/demographics') {
+            document.documentElement.style.overflow = 'visible';
+        }
+    }, [location.pathname]);
 
     return (
         <div className="container">

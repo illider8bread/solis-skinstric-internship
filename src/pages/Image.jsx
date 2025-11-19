@@ -5,7 +5,7 @@ import NavigationButton from "../components/NavigationButton";
 import ImageInput from "../components/ImageInput";
 import gallery from "../assets/galleryicon.png";
 import camera from "../assets/cameraicon.png";
-import Popup from "../components/Popup";
+import Popup from "./Popup";
 import Uploading from "../components/ImagesUploading";
 import Background from "../components/Background";
 
@@ -42,7 +42,7 @@ function Image({ createPrediction, loading, created, setCreated }) {
 
     return (
         <>
-        {loading ? <Background width="42.5rem" marginTop="2rem" /> : <></> }
+        {loading ? <Background width="min(42.5rem, 110%)" marginTop="2rem" /> : <></> }
         <div className="container">
             <div className="row">
                 <Analysis />

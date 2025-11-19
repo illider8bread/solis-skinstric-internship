@@ -4,9 +4,9 @@ import Background from "./Background";
 function ImageInput({ icon, text, arrowDirection, onClick }) {
 
     return (
-        <div className="image__input--wrapper">
+        <div className="image__input--wrapper" >
             <div className="image__input--background">
-                    <Background width="35vw"/>
+                    <Background width="35vw" minWidth="300px"/>
                 <img src={pointer} className={`pointer ${arrowDirection}`} />
                 <p className={`image__input--label para__${arrowDirection}`}> {text} </p>
             </div>

@@ -31,7 +31,7 @@ function Introduction({ createUser, loading, created }) {
 
     return (
         <>
-            <Background width="42.5rem" marginTop="2rem"/>
+            <Background width="min(42.5rem, 110%)" marginTop="2rem"/>
             <div className="container">
                 <div className="row">
                     <Analysis />

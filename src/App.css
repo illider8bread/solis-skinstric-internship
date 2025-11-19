@@ -156,8 +156,8 @@ BACKGROUND SQUARES
 
 .background__square {
     position: absolute;
-    margin:auto;
-    top:-50%;
+    margin: auto;
+    top: -50%;
     bottom: -50%;
     left: -50%;
     right: -50%;
@@ -194,6 +194,7 @@ LANDING PAGE
 .button__left {
     width: 20%;
     max-width: 17rem;
+    min-width: 22.5vw;
     display: flex;
     align-items: center;
     position: relative;
@@ -201,11 +202,11 @@ LANDING PAGE
 }
 
 #nav__left {
-    left: 2rem;
+    left: min(2rem, 2vw);
 }
 
 #nav__right {
-    right: 2rem;
+    right: min(2rem, 2vw);
 }
 
 .button__left {
@@ -236,10 +237,14 @@ LANDING PAGE
     z-index: 5;
 }
 
+.navigation__button--text {
+    font-size: min(1rem, 2vw)
+}
+
 .button__icon {
-    padding-right: 1rem;
-    height: 44px;
-    max-height: 44px;
+    padding-right: min(1rem, 1vw);
+    height: min(44px, 4vw);
+    min-height: 16px;
     width: auto;
 }
 
@@ -318,8 +323,8 @@ form {
     text-align: center;
 }
 
-.processing__dot{
-    font-size:5rem;
+.processing__dot {
+    font-size: 5rem;
     line-height: 1.5rem;
     color: var(--theme-grey);
     position: relative;
@@ -365,6 +370,7 @@ UPLOAD IMAGE FORM PAGE
     align-items: center;
     justify-content: center;
     position: absolute;
+    overflow: visible;
 }
 
 .input__background--image {
@@ -491,7 +497,7 @@ RESULTS PAGE
 */
 
 .results__background {
-    width: min(65vh, 72vw);
+    width: min(720px, 90vw);
     height: auto
 }
 
@@ -504,12 +510,11 @@ RESULTS PAGE
 }
 
 .results__wrapper {
-    width: min(40vh, 45vw);
-    height: min(40vh, 45vw);
+    width: min(60vw, 480px);
+    height: min(60vw, 480px);
     transform: rotate(45deg);
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
     justify-content: space-between;
     align-items: space-between;
 }
@@ -517,6 +522,7 @@ RESULTS PAGE
 .results__button {
     background-color: var(--theme-highlight-grey);
     width: 48%;
+    margin: 1%;
     height: 48%;
     display: flex;
     align-items: center;
@@ -531,8 +537,8 @@ RESULTS PAGE
 .results__button--text {
     text-transform: uppercase;
     transform: rotate(-45deg);
-    width: 80%;
-    font-size: min(0.875rem, 2.5vw);
+    width: 90%;
+    font-size: min(0.85rem, 2.5vw);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -605,6 +611,7 @@ DEMOGRAPHICS PAGE
 .demographics__summaries {
     height: 100%;
     width: 15%;
+    min-width: 9rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -672,6 +679,7 @@ DEMOGRAPHICS PAGE
 .demographics__breakdown {
     height: 70%;
     width: 25%;
+    min-width: 17rem;
 }
 
 .demographics__breakdown--item {
@@ -694,13 +702,19 @@ DEMOGRAPHICS PAGE
 WEBCAM PAGE
 */
 
-.image__preview{
-    position: absolute; /* or relative, depending on your layout */
-    top: 0; /* adjust as needed */
-    left: 0; /* adjust as needed */
-    z-index: 4; /* ensure it's above other elements */
-    width: auto; /* or any size you want */
-    height: 100%; /* maintain aspect ratio */
+.image__preview {
+    position: absolute;
+    /* or relative, depending on your layout */
+    top: 0;
+    /* adjust as needed */
+    left: 0;
+    /* adjust as needed */
+    z-index: 4;
+    /* ensure it's above other elements */
+    width: auto;
+    /* or any size you want */
+    height: 100%;
+    /* maintain aspect ratio */
 }
 
 .webcam__container {
@@ -803,4 +817,161 @@ WEBCAM PAGE
 
 .webcam__uploading {
     position: absolute;
+}
+
+@media (max-width: 1280px) {
+    .image__wrapper {
+        gap: 2rem;
+        overflow: visible;
+    }
+
+    .input__wrapper,
+    .image__input--wrapper {
+        overflow: visible;
+    }
+
+}
+
+@media (max-width:768px) {
+    .button__frame {
+        display: none;
+    }
+
+    .button__right,
+    .button__left {
+        height: auto;
+        width: 15rem;
+        position: absolute;
+        bottom: 2rem;
+    }
+
+    .button__right {
+        right: 1rem;
+    }
+
+    .button__left {
+        left: 1rem;
+    }
+
+    .navigation__button {
+        width: fit-content;
+        max-width: none;
+    }
+
+    .navigation__button--text {
+        font-size: 1rem;
+        width: fit-content;
+    }
+
+    #nav__right,
+    #nav__left {
+        left: auto;
+        right: auto;
+    }
+
+    .button__icon {
+        padding-right: 1rem;
+        height: 44px;
+        min-height: 16px;
+        width: auto;
+    }
+
+    .disclaimer {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5rem;
+        max-width: none;
+        width: 60%;
+        min-width: 15rem;
+    }
+
+    .title {
+        width: 100%;
+        font-size: min(4rem, 14vw);
+    }
+
+    .form__wrapper {
+        width: 90%;
+    }
+
+    .form__input {
+        width: 100%;
+        max-width: 30rem;
+        font-size: min(8vw, 3rem);
+    }
+
+    .image__wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .input__wrapper {
+        width: 100%;
+        height: 50%;
+    }
+
+    .image__input--icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .pointer {
+        width: 45px;
+    }
+
+    .image__input--label {
+        width: 150px;
+        text-align: center;
+    }
+
+    .para__northeast {
+        transform: translate(60px, -100px);
+    }
+
+    .para__southwest {
+        transform: translate(-35px, 75px);
+    }
+
+    .popup__wrapper {
+        width: min(352px, 90%);
+        min-width: 285px;
+    }
+
+    .popup__gallery,
+    .popup__camera {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .results__button--text {
+        word-wrap: break-word;
+    }
+
+    .results__wrapper {
+        width: min(60vw, 480px);
+        height: min(60vw, 480px);
+    }
+
+
+}
+
+@media (max-width: 480px) {
+
+    .pointer {
+        visibility: hidden;
+    }
+
+    .para__northeast {
+        transform: translate(-50%, 150%);
+    }
+
+    .para__southwest {
+        transform: translate(50%, -250%);
+    }
+
+    .image__wrapper .input__wrapper:nth-of-type(2) {
+        transform: translateY(-10%);
+    }
+
 }
